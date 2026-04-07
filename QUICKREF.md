@@ -8,6 +8,8 @@
 |------|------|--------|
 | `/oa:propose <name>` | 创建变更提案 | Spec |
 | `/oa:apply <name>` | 执行任务清单 | Spec |
+| `/oa:validate <name>` | 验证规格格式 | Spec |
+| `/oa:archive <name>` | 归档变更并合并规格 | Spec |
 | `/oa:discuss <phase>` | 讨论澄清需求 | Execution |
 | `/oa:plan <phase>` | 计划原子任务 | Execution |
 | `/oa:execute <phase>` | 波次并行执行 | Execution |
@@ -17,6 +19,7 @@
 | `/oa:tdd` | 测试驱动开发 | Skills |
 | `/oa:debug` | 系统化调试 | Skills |
 | `/oa:review` | 代码审查 | Skills |
+| `/oa:worktree` | Git Worktree 隔离 | Skills |
 | `/oa:team-plan` | 团队规划 | Orchestration |
 | `/oa:team-exec` | 团队执行 | Orchestration |
 | `/oa:team-verify` | 团队验证 | Orchestration |

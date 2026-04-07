@@ -57,6 +57,8 @@ if [ ! -f "AGENTS.md" ]; then
 ```
 /oa:propose <name>    → 创建变更提案
 /oa:apply <name>      → 执行任务清单
+/oa:validate <name>   → 验证规格格式
+/oa:archive <name>    → 归档变更并合并规格
 /oa:discuss <phase>   → 讨论阶段
 /oa:plan <phase>      → 计划阶段
 /oa:execute <phase>   → 执行阶段
@@ -66,6 +68,7 @@ if [ ! -f "AGENTS.md" ]; then
 /oa:tdd               → 测试驱动开发
 /oa:debug             → 系统化调试
 /oa:review            → 代码审查
+/oa:worktree          → Git Worktree 隔离
 ```
 
 ## 工作流

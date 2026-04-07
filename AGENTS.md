@@ -115,15 +115,18 @@ This works with any tool that reads `AGENTS.md` from the project root.
 ```
 /oa:propose <name>    → Create change proposal
 /oa:apply <name>      → Execute tasks from checklist
-/oa:discuss <phase>   → Discuss and clarify requirements
-/oa:plan <phase>      → Plan atomic tasks
-/oa:execute <phase>   → Execute in waves
-/oa:verify <phase>    → Verify quality
-/oa:ship <phase>      → Ship and create PR
-/oa:brainstorm        → Brainstorming session
-/oa:tdd               → Test-driven development
-/oa:debug             → Systematic debugging
-/oa:review            → Code review
+/oa:validate <name>   → Validate spec format (runs scripts/validate-spec.sh)
+/oa:archive <name>    → Archive change and merge to specs (runs scripts/archive-change.sh)
+/oa:discuss <phase>  → Discuss and clarify requirements
+/oa:plan <phase>     → Plan atomic tasks
+/oa:execute <phase>  → Execute in waves
+/oa:verify <phase>   → Verify quality
+/oa:ship <phase>     → Ship and create PR
+/oa:brainstorm       → Brainstorming session
+/oa:tdd              → Test-driven development
+/oa:debug            → Systematic debugging
+/oa:review          → Code review
+/oa:worktree         → Git worktree isolation
 ```
 
 ## License
