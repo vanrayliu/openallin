@@ -24,7 +24,7 @@
    ├── 每个任务前自动触发 TDD skill
    ├── 遇到 bug 自动触发 debugging skill
    └── 完成后自动触发 verification skill
-5. /oa:verify <name>       → 最终验证
+5. /oa:verify <phase>      → 最终验证
 6. git commit && push
 ```
 

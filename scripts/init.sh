@@ -176,6 +176,25 @@ cat > config/memory.json << 'EOF'
 }
 EOF
 
+cat > config/instincts.json << 'EOF'
+{
+  "instincts": [],
+  "version": "1.0.0",
+  "description": "直觉/模式库 — 从会话中自动提取的可靠模式",
+  "schema": {
+    "instinct": {
+      "id": "string",
+      "pattern": "string",
+      "context": "string",
+      "confidence": "number (0-1)",
+      "times_used": "number",
+      "created_at": "ISO date",
+      "updated_at": "ISO date"
+    }
+  }
+}
+EOF
+
 cat > .planning/config.json << 'EOF'
 {
   "mode": "interactive",

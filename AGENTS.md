@@ -122,6 +122,9 @@ This works with any tool that reads `AGENTS.md` from the project root.
 /oa:execute <phase>  → Execute in waves
 /oa:verify <phase>   → Verify quality
 /oa:ship <phase>     → Ship and create PR
+/oa:team-plan        → Team planning (multi-agent orchestration)
+/oa:team-exec        → Team execution (parallel worktree)
+/oa:team-verify      → Team verification (review + security)
 /oa:brainstorm       → Brainstorming session
 /oa:tdd              → Test-driven development
 /oa:debug            → Systematic debugging
