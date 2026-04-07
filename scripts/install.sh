@@ -24,7 +24,10 @@ for arg in "$@"; do
   fi
   # Handle --target=value format
   case "$arg" in
-    --target=*|-t=*)
+    --target=*)
+      TARGET="${arg#*=}"
+      ;;
+    -t=*)
       TARGET="${arg#*=}"
       ;;
     *)
@@ -62,6 +65,9 @@ cp -rn "$HARNESS_DIR/workspace" . 2>/dev/null || true
 cp -rn "$HARNESS_DIR/templates" . 2>/dev/null || true
 cp -rn "$HARNESS_DIR/scripts" . 2>/dev/null || true
 cp -rn "$HARNESS_DIR/rules" . 2>/dev/null || true
+
+# 创建必要目录（确保完整性）
+mkdir -p tasks/archive .planning
 
 for tool in "${TOOLS[@]}"; do
   case "$tool" in

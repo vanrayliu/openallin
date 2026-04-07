@@ -61,8 +61,8 @@ process.stdin.on('end', () => {
         'package.json', 'tsconfig.json'
       ];
 
-      for (const protected of protectedFiles) {
-        if (filePath.includes(protected)) {
+      for (const protectedFile of protectedFiles) {
+        if (filePath.includes(protectedFile)) {
           console.log(`注意: 正在修改受保护的配置文件 ${filePath}`);
           // 不阻止，但记录
         }

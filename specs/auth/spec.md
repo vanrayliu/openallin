@@ -42,3 +42,31 @@
 - WHEN 15 分钟内无任何请求
 - THEN 当前会话标记为过期
 - AND 下次请求需要重新认证
+
+---
+
+## Requirement: Token 刷新
+系统 MUST 支持通过 refresh token 获取新的 access token。
+
+#### Scenario: 有效刷新
+- GIVEN 用户持有未过期的 refresh token
+- WHEN 用户请求刷新
+- THEN 返回新的 access token
+- AND 返回新的 refresh token（轮换）
+
+#### Scenario: 过期 Token
+- GIVEN refresh token 已过期
+- WHEN 用户请求刷新
+- THEN 返回"Token 已过期"错误
+- AND 需要重新登录
+
+## Requirement: 用户登出
+系统 MUST 支持用户主动登出。
+
+#### Scenario: 正常登出
+- GIVEN 用户持有有效的 refresh token
+- WHEN 用户请求登出
+- THEN 使 refresh token 失效
+- AND 返回"已退出"消息
+
+---

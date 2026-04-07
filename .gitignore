@@ -2,12 +2,12 @@
 .DS_Store
 
 # Runtime / workspace
-workspace/journals/
-workspace/tool-usage.log
-.planning/CONTEXT.md
-.planning/REQUIREMENTS.md
-.current-task
-.ralph-state.json
+/workspace/journals/
+/workspace/tool-usage.log
+/.planning/CONTEXT.md
+/.planning/REQUIREMENTS.md
+/.current-task
+/.ralph-state.json
 
 # Developer identity (per-person)
 .developer

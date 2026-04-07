@@ -69,7 +69,8 @@ process.stdin.on('end', () => {
     }
     saveState(summary);
   } catch (e) {
-    // 非 JSON 数据，直接使用原始内容
+    // 解析失败，记录错误后仍尝试保存原始内容
+    console.error('会话摘要解析失败:', e.message);
     saveState(data.trim() || '');
   }
 });
