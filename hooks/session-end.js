@@ -62,9 +62,14 @@ let data = '';
 process.stdin.on('data', chunk => data += chunk);
 process.stdin.on('end', () => {
   try {
-    const summary = data ? JSON.parse(data).summary : '';
+    let summary = '';
+    if (data && data.trim()) {
+      const parsed = JSON.parse(data);
+      summary = parsed.summary || '';
+    }
     saveState(summary);
   } catch (e) {
-    saveState(data);
+    // 非 JSON 数据，直接使用原始内容
+    saveState(data.trim() || '');
   }
 });

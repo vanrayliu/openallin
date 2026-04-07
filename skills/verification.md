@@ -40,11 +40,17 @@
 
 ### Step 2: 执行验证
 ```bash
-# 运行所有验证命令
+# 根据项目实际使用的工具运行验证命令
+# 示例（Node.js 项目）:
 npm run lint
 npm run typecheck
 npm test
 npm run build
+
+# 示例（Python 项目）:
+ruff check .
+mypy .
+pytest
 ```
 
 ### Step 3: 分析结果

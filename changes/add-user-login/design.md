@@ -53,7 +53,7 @@ CREATE TABLE refresh_tokens (
 
 ### POST /api/auth/refresh
 - 输入: { refreshToken }
-- 输出: { accessToken }
+- 输出: { accessToken, refreshToken }（轮换机制）
 
 ### POST /api/auth/logout
 - 输入: { refreshToken }
