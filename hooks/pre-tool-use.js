@@ -8,6 +8,10 @@
 const fs = require('fs');
 const path = require('path');
 
+const HARNESS_DIR = process.env.CLAUDE_PROJECT_DIR
+  ? path.resolve(process.env.CLAUDE_PROJECT_DIR)
+  : path.resolve(__dirname, '..');
+
 // 从 stdin 读取工具信息
 let data = '';
 process.stdin.on('data', chunk => data += chunk);

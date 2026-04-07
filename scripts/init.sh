@@ -21,19 +21,15 @@ cd "$TARGET_DIR"
 
 # 创建目录结构
 echo "📁 创建目录结构..."
-mkdir -p openspec/{specs,changes/archive}
-mkdir -p skills
-mkdir -p agents
-mkdir -p rules
-mkdir -p hooks
-mkdir -p config
+mkdir -p specs/{auth,api,ui}
+mkdir -p changes/archive
 mkdir -p tasks/archive
 mkdir -p workspace/journals
 mkdir -p .planning
 
 # 复制模板文件
 echo "📋 复制模板文件..."
-cp "$HARNESS_DIR/templates/"* . 2>/dev/null || true
+cp -rn "$HARNESS_DIR/templates" . 2>/dev/null || true
 cp "$HARNESS_DIR/project.md" . 2>/dev/null || true
 
 # 创建 AGENTS.md

@@ -8,7 +8,9 @@
 const fs = require('fs');
 const path = require('path');
 
-const HARNESS_DIR = path.resolve(__dirname, '..');
+const HARNESS_DIR = process.env.CLAUDE_PROJECT_DIR
+  ? path.resolve(process.env.CLAUDE_PROJECT_DIR)
+  : path.resolve(__dirname, '..');
 
 function saveState(sessionSummary) {
   const workspaceDir = path.join(HARNESS_DIR, 'workspace');

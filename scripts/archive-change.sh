@@ -40,16 +40,20 @@ if [ -d "$CHANGE_DIR/specs" ]; then
     # 处理 ADDED
     if grep -q "^## ADDED Requirements" "$spec_file"; then
       echo "  ➕ 合并 ADDED: $REL_PATH"
-      sed -n '/^## ADDED Requirements/,/^## /p' "$spec_file" | \
-        grep -v "^## ADDED" >> "$TARGET_SPEC" 2>/dev/null || true
+      # 提取 ADDED 到文件末尾或下一个 ## 开头的 section
+      awk '/^## ADDED Requirements/{found=1; next} found && /^## (MODIFIED|REMOVED) Requirements/{found=0} found' "$spec_file" >> "$TARGET_SPEC" 2>/dev/null || true
     fi
 
     # 处理 MODIFIED
     if grep -q "^## MODIFIED Requirements" "$spec_file"; then
       echo "  🔄 合并 MODIFIED: $REL_PATH"
-      # 简化处理: 追加到目标文件
-      sed -n '/^## MODIFIED Requirements/,/^## /p' "$spec_file" | \
-        grep -v "^## MODIFIED" >> "$TARGET_SPEC" 2>/dev/null || true
+      awk '/^## MODIFIED Requirements/{found=1; next} found && /^## REMOVED Requirements/{found=0} found' "$spec_file" >> "$TARGET_SPEC" 2>/dev/null || true
+    fi
+
+    # 处理 REMOVED
+    if grep -q "^## REMOVED Requirements" "$spec_file"; then
+      echo "  ➖ 合并 REMOVED: $REL_PATH"
+      awk '/^## REMOVED Requirements/{found=1; next} found' "$spec_file" >> "$TARGET_SPEC" 2>/dev/null || true
     fi
   done
 fi

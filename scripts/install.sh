@@ -6,16 +6,22 @@
 set -e
 
 HARNESS_DIR="$(cd "$(dirname "$0")/.." && pwd)"
-TARGET="${2:-.}"
-TOOLS=("$@")
+
+# 解析参数: [tool1] [tool2] ... [--target dir]
+TOOLS=()
+TARGET="."
+
+for arg in "$@"; do
+  if [ "$arg" = "--target" ] || [ "$arg" = "-t" ]; then
+    shift
+    TARGET="$1"
+  else
+    TOOLS+=("$arg")
+  fi
+done
 
 # 如果没有指定工具，默认安装所有
 if [ ${#TOOLS[@]} -eq 0 ] || ([ ${#TOOLS[@]} -eq 1 ] && [ "${TOOLS[0]}" = "all" ]); then
-  TOOLS=(opencode claude)
-fi
-
-# 移除第一个参数（如果是 all）
-if [ "${TOOLS[0]}" = "all" ]; then
   TOOLS=(opencode claude)
 fi
 
@@ -77,7 +83,7 @@ EOF
       for agent in "$HARNESS_DIR/agents/"*.md; do
         [ -f "$agent" ] || continue
         name=$(basename "$agent" .md)
-        if [ ! -f ".opencode/agents/$agent" ]; then
+        if [ ! -f ".opencode/agents/$name.md" ]; then
           cp "$agent" ".opencode/agents/"
           echo "  ✅ agent: $name"
         fi

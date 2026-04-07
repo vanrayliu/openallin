@@ -8,6 +8,10 @@
 const fs = require('fs');
 const path = require('path');
 
+const HARNESS_DIR = process.env.CLAUDE_PROJECT_DIR
+  ? path.resolve(process.env.CLAUDE_PROJECT_DIR)
+  : path.resolve(__dirname, '..');
+
 let data = '';
 process.stdin.on('data', chunk => data += chunk);
 process.stdin.on('end', () => {
@@ -32,7 +36,11 @@ process.stdin.on('end', () => {
     }
 
     // 2. 记录工具使用
-    const logPath = path.resolve(__dirname, '..', 'workspace', 'tool-usage.log');
+    const logDir = path.join(HARNESS_DIR, 'workspace');
+    if (!fs.existsSync(logDir)) {
+      fs.mkdirSync(logDir, { recursive: true });
+    }
+    const logPath = path.join(logDir, 'tool-usage.log');
     const logEntry = `[${new Date().toISOString()}] ${tool}\n`;
     fs.appendFileSync(logPath, logEntry);
 
