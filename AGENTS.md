@@ -36,11 +36,74 @@ OpenAllIn uses a **layered, composable** design where each layer is independentl
 5. **Capability Enhancement** — Security, memory, learning, verification loops
 6. **Project Memory** — File-based persistence over LLM memory
 
+## Installation
+
+### Quick Install
+
+```bash
+# Clone and install
+git clone https://github.com/vanrayliu/openallin.git
+cd openallin
+bash scripts/install.sh opencode   # For OpenCode
+bash scripts/install.sh claude     # For Claude Code
+bash scripts/install.sh all        # For all tools
+```
+
+### OpenCode
+
+```bash
+# Project-level
+cp AGENTS.md your-project/
+cp project.md your-project/
+cp -r skills/ your-project/.opencode/skills/
+cp -r rules/ your-project/.opencode/rules/
+cp -r agents/ your-project/.opencode/agents/
+
+# Or use the install script
+bash scripts/install.sh opencode your-project/
+```
+
+OpenCode reads `AGENTS.md` natively. Skills go to `.opencode/skills/<name>/SKILL.md` with YAML frontmatter.
+
+### Claude Code
+
+```bash
+# Project-level
+cp AGENTS.md your-project/CLAUDE.md
+cp project.md your-project/
+cp -r skills/* your-project/.claude/skills/  # with SKILL.md wrapper
+cp -r rules/ your-project/.claude/rules/
+cp -r agents/ your-project/.claude/agents/
+cp -r hooks/ your-project/.claude/hooks/
+
+# Or use the install script
+bash scripts/install.sh claude your-project/
+```
+
+Claude Code reads `CLAUDE.md` natively. Hooks are configured in `.claude/settings.json`.
+
+### Other Tools
+
+| Tool | Install | Notes |
+|------|---------|-------|
+| **Cursor** | Copy `AGENTS.md` to project root or `.cursor/rules/` | Reads `.mdc` files |
+| **Codex** | Copy `AGENTS.md` to project root | Reads AGENTS.md |
+| **Gemini CLI** | Copy `AGENTS.md` to project root | Claude Code compatible |
+| **Windsurf** | Copy `AGENTS.md` to project root | Auto-detects |
+
+### Minimal Install (Universal)
+
+```bash
+cp AGENTS.md your-project/
+cp project.md your-project/
+cp -r specs/ your-project/
+cp -r changes/ your-project/
+cp -r workspace/ your-project/workspace/
+```
+
+This works with any tool that reads `AGENTS.md` from the project root.
+
 ## Quick Start
-
-See README.md (Chinese) for full documentation.
-
-### Commands
 
 ```
 /oa:propose <name>    → Create change proposal

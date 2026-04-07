@@ -120,6 +120,185 @@ openallin/
     └── archive-change.sh        # 变更归档
 ```
 
+## 安装指南
+
+OpenAllIn 支持 **一键安装** 到多种 AI 编码工具中。以下是各平台的安装方式。
+
+### 方式一：一键安装脚本（推荐）
+
+```bash
+# 克隆仓库
+git clone https://github.com/vanrayliu/openallin.git
+cd openallin
+
+# 安装到指定工具（支持多参数）
+bash scripts/install.sh opencode       # 仅 OpenCode
+bash scripts/install.sh claude         # 仅 Claude Code
+bash scripts/install.sh opencode claude # 同时安装
+```
+
+### 方式二：手动安装
+
+---
+
+#### OpenCode
+
+OpenCode 原生兼容 `AGENTS.md`，安装最简单：
+
+**项目级安装**（推荐）：
+```bash
+# 1. 将 OpenAllIn 核心文件复制到项目根目录
+cp openallin/AGENTS.md your-project/
+cp openallin/project.md your-project/
+cp -r openallin/skills/ your-project/.opencode/skills/
+cp -r openallin/specs/ your-project/
+cp -r openallin/changes/ your-project/
+cp -r openallin/rules/ your-project/.opencode/rules/
+cp -r openallin/agents/ your-project/.opencode/agents/
+cp -r openallin/config/ your-project/config/
+cp -r openallin/workspace/ your-project/workspace/
+cp -r openallin/templates/ your-project/templates/
+cp -r openallin/scripts/ your-project/scripts/
+
+# 2. 配置 opencode.json（在项目根目录）
+cat > your-project/opencode.json << 'EOF'
+{
+  "instructions": ["AGENTS.md", "project.md"],
+  "permission": {
+    "skill": {
+      "*": "allow"
+    }
+  }
+}
+EOF
+```
+
+**全局安装**（所有项目可用）：
+```bash
+# 复制 AGENTS.md 到全局配置
+cp openallin/AGENTS.md ~/.config/opencode/AGENTS.md
+cp -r openallin/skills/* ~/.config/opencode/skills/
+```
+
+**OpenCode 目录映射**：
+| OpenAllIn 目录 | OpenCode 目标路径 |
+|---------------|-------------------|
+| `AGENTS.md` | 项目根目录 `AGENTS.md` |
+| `skills/*.md` | `.opencode/skills/<name>/SKILL.md` |
+| `rules/*.md` | `.opencode/rules/` |
+| `agents/*.md` | `.opencode/agents/` |
+
+---
+
+#### Claude Code
+
+Claude Code 使用 `CLAUDE.md` 作为主指令文件：
+
+**项目级安装**（推荐）：
+```bash
+# 1. 创建 .claude 目录结构
+mkdir -p your-project/.claude/{rules,skills,agents,hooks}
+
+# 2. 复制核心文件
+cp openallin/AGENTS.md your-project/CLAUDE.md
+cp openallin/project.md your-project/
+cp -r openallin/specs/ your-project/
+cp -r openallin/changes/ your-project/
+cp -r openallin/config/ your-project/config/
+cp -r openallin/workspace/ your-project/workspace/
+cp -r openallin/templates/ your-project/templates/
+cp -r openallin/scripts/ your-project/scripts/
+
+# 3. 转换 skills 格式（添加 YAML frontmatter）
+for skill in openallin/skills/*.md; do
+  name=$(basename "$skill" .md)
+  mkdir -p "your-project/.claude/skills/$name"
+  cat > "your-project/.claude/skills/$name/SKILL.md" << EOF
+---
+name: $name
+description: OpenAllIn $name skill
+---
+EOF
+  cat "$skill" >> "your-project/.claude/skills/$name/SKILL.md"
+done
+
+# 4. 复制 rules
+cp openallin/rules/*.md your-project/.claude/rules/
+
+# 5. 复制 agents
+cp openallin/agents/*.md your-project/.claude/agents/
+
+# 6. 配置 hooks（在 .claude/settings.json 中）
+cat > your-project/.claude/settings.json << 'EOF'
+{
+  "hooks": {
+    "SessionStart": [
+      { "type": "command", "command": "node $CLAUDE_PROJECT_DIR/hooks/session-start.js" }
+    ],
+    "SessionEnd": [
+      { "type": "command", "command": "node $CLAUDE_PROJECT_DIR/hooks/session-end.js" }
+    ],
+    "PreToolUse": [
+      { "type": "command", "command": "node $CLAUDE_PROJECT_DIR/hooks/pre-tool-use.js" }
+    ],
+    "PostToolUse": [
+      { "type": "command", "command": "node $CLAUDE_PROJECT_DIR/hooks/post-tool-use.js" }
+    ]
+  }
+}
+EOF
+```
+
+**全局安装**（所有项目可用）：
+```bash
+cp openallin/AGENTS.md ~/.claude/CLAUDE.md
+cp -r openallin/skills/* ~/.claude/skills/
+cp -r openallin/rules/* ~/.claude/rules/
+```
+
+---
+
+#### 其他工具
+
+| 工具 | 安装方式 | 说明 |
+|------|---------|------|
+| **Cursor** | 复制 `AGENTS.md` 到项目根目录，或放入 `.cursor/rules/` | 读取 `AGENTS.md` 或 `.cursor/rules/` |
+| **Codex** | 复制 `AGENTS.md` 到项目根目录 | 通过 AGENTS.md 读取指令 |
+| **Gemini CLI** | 复制 `AGENTS.md` 到项目根目录 | 兼容 Claude Code 格式 |
+| **Windsurf** | 复制 `AGENTS.md` 到项目根目录 | 自动读取 |
+| **Kilo Code** | 复制 `AGENTS.md` 到项目根目录 | 自动读取 |
+
+**通用安装**（适用于所有工具）：
+```bash
+# 最小安装：只复制核心指令文件
+cp openallin/AGENTS.md your-project/
+cp openallin/project.md your-project/
+cp -r openallin/specs/ your-project/
+cp -r openallin/changes/ your-project/
+cp -r openallin/workspace/ your-project/workspace/
+```
+
+---
+
+### 安装后验证
+
+```bash
+# 1. 检查文件是否就位
+ls -la your-project/AGENTS.md       # OpenCode
+ls -la your-project/CLAUDE.md       # Claude Code
+ls -la your-project/.opencode/skills/  # OpenCode skills
+ls -la your-project/.claude/skills/    # Claude Code skills
+
+# 2. 启动 AI 工具，确认指令已加载
+opencode          # 应显示 AGENTS.md 内容摘要
+claude            # 应显示 CLAUDE.md 内容摘要
+
+# 3. 测试技能是否可用
+# 在 AI 工具中输入 /skills 或询问 AI "你有哪些可用技能"
+```
+
+---
+
 ## 快速开始
 
 ### 1. 初始化
