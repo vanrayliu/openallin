@@ -1,0 +1,42 @@
+{
+  "id": "<task-id>",
+  "name": "<任务名称>",
+  "status": "created",
+  "priority": "medium",
+  "branch": "<feature-branch>",
+  "assignee": "<agent-name>",
+  "created_at": "<ISO date>",
+  "phases": [
+    {
+      "name": "discuss",
+      "status": "pending",
+      "output": null
+    },
+    {
+      "name": "plan",
+      "status": "pending",
+      "output": null
+    },
+    {
+      "name": "execute",
+      "status": "pending",
+      "output": null,
+      "waves": []
+    },
+    {
+      "name": "verify",
+      "status": "pending",
+      "output": null
+    },
+    {
+      "name": "ship",
+      "status": "pending",
+      "output": null
+    }
+  ],
+  "dev_type": "fullstack",
+  "context_files": {
+    "implement": [],
+    "check": []
+  }
+}
