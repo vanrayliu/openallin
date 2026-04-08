@@ -184,8 +184,8 @@ EOF
         fi
       done
 
-      # 复制 hooks
-      for hook in "$HARNESS_DIR/hooks/"*.js "$HARNESS_DIR/hooks/hooks.json"; do
+      # 复制 hooks 文件
+      for hook in "$HARNESS_DIR/hooks/"*.js; do
         [ -f "$hook" ] || continue
         if [ ! -f ".claude/hooks/$(basename "$hook")" ]; then
           cp "$hook" ".claude/hooks/"
@@ -193,43 +193,36 @@ EOF
         fi
       done
 
-      # 创建/更新 .claude/settings.json
-      if [ ! -f ".claude/settings.json" ]; then
-        cat > .claude/settings.json << 'EOF'
+      # 使用 jq 合并 hooks 配置到 settings.json（保留用户原有配置）
+      OA_START='{ "matcher": "", "hooks": [{ "type": "command", "command": "node $CLAUDE_PROJECT_DIR/.claude/hooks/session-start.js" }] }'
+      OA_END='{ "matcher": "", "hooks": [{ "type": "command", "command": "node $CLAUDE_PROJECT_DIR/.claude/hooks/session-end.js" }] }'
+      OA_PRE='{ "matcher": "", "hooks": [{ "type": "command", "command": "node $CLAUDE_PROJECT_DIR/.claude/hooks/pre-tool-use.js" }] }'
+      OA_POST='{ "matcher": "", "hooks": [{ "type": "command", "command": "node $CLAUDE_PROJECT_DIR/.claude/hooks/post-tool-use.js" }] }'
+
+      if [ -f ".claude/settings.json" ]; then
+        # settings.json 已存在，合并 hooks（保留用户其他 hooks，只补充/修复 OpenAllIn hooks）
+        if command -v jq >/dev/null 2>&1; then
+          cp .claude/settings.json .claude/settings.json.bak
+          jq \
+            --argjson s "$OA_START" \
+            --argjson e "$OA_END" \
+            --argjson p "$OA_PRE" \
+            --argjson o "$OA_POST" \
+            '.hooks.SessionStart = ([$s] + (.hooks.SessionStart // [])) | .hooks.SessionEnd = ([$e] + (.hooks.SessionEnd // [])) | .hooks.PreToolUse = ([$p] + (.hooks.PreToolUse // [])) | .hooks.PostToolUse = ([$o] + (.hooks.PostToolUse // []))' \
+            .claude/settings.json.bak > .claude/settings.json && rm .claude/settings.json.bak
+          echo "  ✅ .claude/settings.json 已更新（OpenAllIn hooks 已合并）"
+        else
+          echo "  ⚠️  jq 未安装，无法自动合并 hooks。请手动将 hooks 配置添加到 .claude/settings.json"
+        fi
+      else
+        # settings.json 不存在，创建新的
+        cat > .claude/settings.json << EOF
 {
   "hooks": {
-    "SessionStart": [
-      {
-        "matcher": "",
-        "hooks": [
-          { "type": "command", "command": "node $CLAUDE_PROJECT_DIR/.claude/hooks/session-start.js" }
-        ]
-      }
-    ],
-    "SessionEnd": [
-      {
-        "matcher": "",
-        "hooks": [
-          { "type": "command", "command": "node $CLAUDE_PROJECT_DIR/.claude/hooks/session-end.js" }
-        ]
-      }
-    ],
-    "PreToolUse": [
-      {
-        "matcher": "",
-        "hooks": [
-          { "type": "command", "command": "node $CLAUDE_PROJECT_DIR/.claude/hooks/pre-tool-use.js" }
-        ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "",
-        "hooks": [
-          { "type": "command", "command": "node $CLAUDE_PROJECT_DIR/.claude/hooks/post-tool-use.js" }
-        ]
-      }
-    ]
+    "SessionStart": [$OA_START],
+    "SessionEnd": [$OA_END],
+    "PreToolUse": [$OA_PRE],
+    "PostToolUse": [$OA_POST]
   }
 }
 EOF
