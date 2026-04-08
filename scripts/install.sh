@@ -202,15 +202,17 @@ EOF
       if [ -f ".claude/settings.json" ]; then
         # settings.json 已存在，合并 hooks（保留用户其他 hooks，只补充/修复 OpenAllIn hooks）
         if command -v jq >/dev/null 2>&1; then
-          cp .claude/settings.json .claude/settings.json.bak
+          BAK_FILE=".claude/settings.json.bak.$(date +%Y%m%d_%H%M%S)"
+          cp .claude/settings.json "$BAK_FILE"
           jq \
             --argjson s "$OA_START" \
             --argjson e "$OA_END" \
             --argjson p "$OA_PRE" \
             --argjson o "$OA_POST" \
             '.hooks.SessionStart = ([$s] + (.hooks.SessionStart // [])) | .hooks.SessionEnd = ([$e] + (.hooks.SessionEnd // [])) | .hooks.PreToolUse = ([$p] + (.hooks.PreToolUse // [])) | .hooks.PostToolUse = ([$o] + (.hooks.PostToolUse // []))' \
-            .claude/settings.json.bak > .claude/settings.json && rm .claude/settings.json.bak
+            "$BAK_FILE" > .claude/settings.json
           echo "  ✅ .claude/settings.json 已更新（OpenAllIn hooks 已合并）"
+          echo "  📦 备份已保存: $BAK_FILE"
         else
           echo "  ⚠️  jq 未安装，无法自动合并 hooks。请手动将 hooks 配置添加到 .claude/settings.json"
         fi
