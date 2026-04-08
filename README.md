@@ -320,16 +320,36 @@ cat > your-project/.claude/settings.json << 'EOF'
 {
   "hooks": {
     "SessionStart": [
-      { "type": "command", "command": "node $CLAUDE_PROJECT_DIR/.claude/hooks/session-start.js" }
+      {
+        "matcher": "",
+        "hooks": [
+          { "type": "command", "command": "node $CLAUDE_PROJECT_DIR/.claude/hooks/session-start.js" }
+        ]
+      }
     ],
     "SessionEnd": [
-      { "type": "command", "command": "node $CLAUDE_PROJECT_DIR/.claude/hooks/session-end.js" }
+      {
+        "matcher": "",
+        "hooks": [
+          { "type": "command", "command": "node $CLAUDE_PROJECT_DIR/.claude/hooks/session-end.js" }
+        ]
+      }
     ],
     "PreToolUse": [
-      { "type": "command", "command": "node $CLAUDE_PROJECT_DIR/.claude/hooks/pre-tool-use.js" }
+      {
+        "matcher": "",
+        "hooks": [
+          { "type": "command", "command": "node $CLAUDE_PROJECT_DIR/.claude/hooks/pre-tool-use.js" }
+        ]
+      }
     ],
     "PostToolUse": [
-      { "type": "command", "command": "node $CLAUDE_PROJECT_DIR/.claude/hooks/post-tool-use.js" }
+      {
+        "matcher": "",
+        "hooks": [
+          { "type": "command", "command": "node $CLAUDE_PROJECT_DIR/.claude/hooks/post-tool-use.js" }
+        ]
+      }
     ]
   }
 }
