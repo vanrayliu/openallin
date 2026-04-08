@@ -201,6 +201,7 @@ cp -r openallin/config/ your-project/config/
 cp -r openallin/workspace/ your-project/workspace/
 cp -r openallin/templates/ your-project/templates/
 cp -r openallin/scripts/ your-project/scripts/
+cp -r openallin/rules/ your-project/rules/
 
 # 2. Skills 需要 SKILL.md 包装（推荐使用安装脚本自动转换）
 # 手动方式: mkdir -p your-project/.opencode/skills/brainstorming
@@ -259,8 +260,8 @@ cp -r openallin/scripts/ your-project/scripts/
 cp openallin/rules/*.md your-project/.claude/rules/
 cp openallin/agents/*.md your-project/.claude/agents/
 
-# 4. 复制 hooks
-cp openallin/hooks/*.js your-project/.claude/hooks/
+# 4. 复制 hooks（包括 hooks.json）
+cp openallin/hooks/*.js openallin/hooks/hooks.json your-project/.claude/hooks/
 
 # 5. 配置 hooks（在 .claude/settings.json 中）
 cat > your-project/.claude/settings.json << 'EOF'
