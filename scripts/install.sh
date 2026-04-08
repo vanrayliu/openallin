@@ -177,6 +177,17 @@ EOF
         fi
       done
 
+      # 复制 oa-* 命令 skills (Claude Code 也需要)
+      for skill_dir in "$HARNESS_DIR/.opencode/skills/oa-"*; do
+        [ -d "$skill_dir" ] || continue
+        name=$(basename "$skill_dir")
+        if [ ! -f ".claude/skills/$name/SKILL.md" ]; then
+          mkdir -p ".claude/skills/$name"
+          cp "$skill_dir/SKILL.md" ".claude/skills/$name/"
+          echo "  ✅ command: $name"
+        fi
+      done
+
       # 复制 agents
       for agent in "$HARNESS_DIR/agents/"*.md; do
         [ -f "$agent" ] || continue
