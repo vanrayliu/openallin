@@ -117,6 +117,17 @@ EOF
         fi
       done
 
+      # 复制 oa-* 命令 skills
+      for skill_dir in "$HARNESS_DIR/.opencode/skills/oa-"*; do
+        [ -d "$skill_dir" ] || continue
+        name=$(basename "$skill_dir")
+        if [ ! -f ".opencode/skills/$name/SKILL.md" ]; then
+          mkdir -p ".opencode/skills/$name"
+          cp "$skill_dir/SKILL.md" ".opencode/skills/$name/"
+          echo "  ✅ command: $name"
+        fi
+      done
+
       # 创建/更新 opencode.json
       if [ ! -f "opencode.json" ]; then
         cat > opencode.json << 'EOF'

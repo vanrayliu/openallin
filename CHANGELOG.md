@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v1.0.4] - 2026-04-08
+
+### Added
+- **11 Command Skills**: oa-propose, oa-apply, oa-validate, oa-archive, oa-discuss, oa-plan, oa-execute, oa-verify, oa-ship, oa-team-plan, oa-team-exec, oa-team-verify, oa-worktree
+  - Implemented as OpenCode skills for actual command execution
+  - Each skill provides workflow guidance and templates
+
+### Fixed
+- Claude Code settings.json merge preserves user hooks with backup
+
 ## [v1.0.0] - 2026-04-08
 
 ### Added
