@@ -10,6 +10,35 @@
 
 ---
 
+## 🚀 Quick Start / 快速开始
+
+```bash
+# 1. Clone this repo
+git clone https://github.com/vanrayliu/openallin.git
+
+# 2. Go to YOUR project directory (NOT the cloned repo)
+cd your-project
+
+# 3. Install OpenAllIn to YOUR project (current directory)
+# This creates .claude/, skills/, rules/, etc. in YOUR project
+bash /path/to/openallin/scripts/install.sh claude
+
+# 4. Done! Restart your AI coding tool
+```
+
+**IMPORTANT:** Installation is **project-level**, not home directory. Run `install.sh` from your project directory.
+
+For other AI tools:
+```bash
+bash install.sh opencode    # OpenCode
+bash install.sh claude      # Claude Code  
+bash install.sh cursor      # Cursor
+bash install.sh codex       # Codex
+bash install.sh             # All tools
+```
+
+---
+
 ## Why OpenAllIn?
 
 AI coding tools are powerful, but 6 common instabilities often emerge in practice:
