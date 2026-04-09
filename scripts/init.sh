@@ -69,6 +69,7 @@ if [ ! -f "AGENTS.md" ]; then
 /oa-team-verify       → Team verification
 /oa-brainstorming     → Brainstorming session
 /oa-debugging         → Systematic debugging
+/oa-tdd               → Test-driven development
 /oa-writing-plans     → Plan writing
 /oa-worktree          → Git Worktree isolation
 ```

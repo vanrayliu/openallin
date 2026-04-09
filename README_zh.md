@@ -146,6 +146,7 @@ openallin/
 │   ├── oa-team-verify.md      # 团队验证
 │   ├── oa-brainstorming.md     # 头脑风暴
 │   ├── oa-debugging.md        # 系统化调试
+│   ├── oa-tdd.md              # 测试驱动开发
 │   ├── oa-writing-plans.md     # 计划编写
 │   └── oa-worktree.md         # Git Worktree 隔离
 │
@@ -436,6 +437,7 @@ bash scripts/init.sh
 # Step 4: 技能调用（工程纪律）
 /oa-brainstorming                → 头脑风暴（多轮迭代）
 /oa-debugging                    → 系统化调试（多轮迭代）
+/oa-tdd                          → 测试驱动开发（Red-Green-Refactor）
 /oa-writing-plans               → 计划编写（多轮迭代）
 /oa-worktree                    → Git Worktree 隔离
 ```

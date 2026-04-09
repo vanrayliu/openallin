@@ -2,7 +2,7 @@
 
 > 一页纸记住所有命令、文件和规则
 
-## 命令速查 (16 个)
+## 命令速查 (17 个)
 
 | 命令 | 用途 | 触发层 | 多轮迭代 |
 |------|------|--------|----------|
@@ -17,6 +17,7 @@
 | `/oa-ship` | 创建 PR 发布 | Execution | - |
 | `/oa-brainstorming` | 头脑风暴 | Skills | ✅ 5轮 |
 | `/oa-debugging` | 系统化调试 | Skills | ✅ 5轮 |
+| `/oa-tdd` | 测试驱动开发 | Skills | ✅ Red-Green-Refactor |
 | `/oa-writing-plans` | 计划编写 | Skills | ✅ 4轮 |
 | `/oa-worktree` | Git Worktree 隔离 | Skills | - |
 | `/oa-team-plan` | 团队规划 | Orchestration | - |

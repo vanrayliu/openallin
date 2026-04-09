@@ -196,6 +196,7 @@ openallin/
 │   ├── oa-team-verify.md      # Team verification
 │   ├── oa-brainstorming.md    # Brainstorming session
 │   ├── oa-debugging.md        # Systematic debugging
+│   ├── oa-tdd.md              # Test-driven development
 │   ├── oa-writing-plans.md     # Plan writing
 │   └── oa-worktree.md         # Git Worktree isolation
 │
@@ -486,6 +487,7 @@ bash scripts/init.sh
 # 技能调用（工程纪律）
 /oa-brainstorming                → Brainstorming session (multi-round)
 /oa-debugging                    → Systematic debugging (multi-round)
+/oa-tdd                          → Test-driven development (Red-Green-Refactor)
 /oa-writing-plans               → Plan writing (multi-round)
 /oa-worktree                    → Git Worktree isolation
 ```

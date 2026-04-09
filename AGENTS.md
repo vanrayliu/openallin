@@ -134,6 +134,7 @@ This works with any tool that reads `AGENTS.md` from the project root.
 # Engineering Methodology
 /oa-brainstorming       → Brainstorming session (multi-round)
 /oa-debugging           → Systematic debugging (multi-round)
+/oa-tdd                 → Test-driven development (Red-Green-Refactor)
 /oa-writing-plans       → Plan writing (multi-round)
 /oa-worktree            → Git worktree isolation
 ```
