@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v1.2.0] - 2026-04-09
+
+### Added
+- **10+ CLI Tools Support**: OpenCode, Claude Code, Cursor, Codex, OpenClaw, Gemini CLI, Windsurf, Kilo Code, Augment, Zed
+- **Auto-detection**: Automatically detect current CLI environment when no tool specified
+- **Environment variable detection**: OPENCODE, CLAUDE_CODE, CURSOR, CODEX, OPENCLAW, GEMINI_CLI, WINDSURF, KILO, AUGMENT, ZED
+
+### Changed
+- **Flattened skills structure**: `skills/oa-*.md` (single file per command)
+- **Skills installation format**: `<name>/SKILL.md` for CLI tool compatibility
+- **Unified command format**: All commands use `/oa-` prefix (not `/oa:`)
+
+### Fixed
+- Clean up old flat skill files before installing new format
+- Install skills with correct `<name>/SKILL.md` wrapper for Claude Code/OpenCode
+- Documentation consistency: all docs reference correct 16 commands
+
 ## [v1.1.0] - 2026-04-09
 
 ### Added
