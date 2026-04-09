@@ -234,21 +234,25 @@ EOF
       OA_POST='{ "matcher": "", "hooks": [{ "type": "command", "command": "node $CLAUDE_PROJECT_DIR/.claude/hooks/post-tool-use.js" }] }'
 
       if [ -f ".claude/settings.json" ]; then
-        # settings.json 已存在，备份后合并 hooks
+        # settings.json 已存在，备份后合并 hooks（去重）
         BAK_FILE=".claude/settings.json.bak.$(date +%Y%m%d_%H%M%S)"
         cp .claude/settings.json "$BAK_FILE"
         echo "  📦 备份已保存: $BAK_FILE"
 
         if command -v jq >/dev/null 2>&1; then
-          # 转换旧格式 hooks 并合并新 hooks
-          jq \
-            --argjson s "$OA_START" \
-            --argjson e "$OA_END" \
-            --argjson p "$OA_PRE" \
-            --argjson o "$OA_POST" \
-            '.hooks.SessionStart = (.hooks.SessionStart // []) | .hooks.SessionEnd = (.hooks.SessionEnd // []) | .hooks.PreToolUse = (.hooks.PreToolUse // []) | .hooks.PostToolUse = (.hooks.PostToolUse // []) | .hooks.SessionStart = ([$s] + (.hooks.SessionStart | map(if has("matcher") then . else {matcher:"", hooks: [.]} end))) | .hooks.SessionEnd = ([$e] + (.hooks.SessionEnd | map(if has("matcher") then . else {matcher:"", hooks: [.]} end))) | .hooks.PreToolUse = ([$p] + (.hooks.PreToolUse | map(if has("matcher") then . else {matcher:"", hooks: [.]} end))) | .hooks.PostToolUse = ([$o] + (.hooks.PostToolUse | map(if has("matcher") then . else {matcher:"", hooks: [.]} end)))' \
-            "$BAK_FILE" > .claude/settings.json
-          echo "  ✅ .claude/settings.json 已更新（OpenAllIn hooks 已合并）"
+          # 检查是否已存在 OpenAllIn hooks，如果存在则跳过合并
+          if jq -e '.hooks.SessionStart[] | select(.hooks[].command | contains("session-start.js"))' "$BAK_FILE" >/dev/null 2>&1; then
+            echo "  ✅ OpenAllIn hooks 已存在，跳过合并"
+          else
+            jq \
+              --argjson s "$OA_START" \
+              --argjson e "$OA_END" \
+              --argjson p "$OA_PRE" \
+              --argjson o "$OA_POST" \
+              '.hooks.SessionStart = (.hooks.SessionStart // []) | .hooks.SessionEnd = (.hooks.SessionEnd // []) | .hooks.PreToolUse = (.hooks.PreToolUse // []) | .hooks.PostToolUse = (.hooks.PostToolUse // []) | .hooks.SessionStart = ([$s] + (.hooks.SessionStart | map(if has("matcher") then . else {matcher:"", hooks: [.]} end))) | .hooks.SessionEnd = ([$e] + (.hooks.SessionEnd | map(if has("matcher") then . else {matcher:"", hooks: [.]} end))) | .hooks.PreToolUse = ([$p] + (.hooks.PreToolUse | map(if has("matcher") then . else {matcher:"", hooks: [.]} end))) | .hooks.PostToolUse = ([$o] + (.hooks.PostToolUse | map(if has("matcher") then . else {matcher:"", hooks: [.]} end)))' \
+              "$BAK_FILE" > .claude/settings.json
+            echo "  ✅ .claude/settings.json 已更新（OpenAllIn hooks 已合并）"
+          fi
         else
           echo "  ⚠️  jq 未安装，无法自动合并 hooks。原始配置已备份，请手动处理。"
         fi
