@@ -129,6 +129,12 @@ EOF
       done
 
       # 创建/更新 opencode.json
+      if [ -f "opencode.json" ]; then
+        BAK_FILE="opencode.json.bak.$(date +%Y%m%d_%H%M%S)"
+        cp opencode.json "$BAK_FILE"
+        echo "  📦 备份已保存: $BAK_FILE"
+      fi
+
       if [ ! -f "opencode.json" ]; then
         cat > opencode.json << 'EOF'
 {
@@ -222,10 +228,12 @@ EOF
       OA_POST='{ "matcher": "", "hooks": [{ "type": "command", "command": "node $CLAUDE_PROJECT_DIR/.claude/hooks/post-tool-use.js" }] }'
 
       if [ -f ".claude/settings.json" ]; then
-        # settings.json 已存在，合并 hooks（保留用户其他 hooks，只补充/修复 OpenAllIn hooks）
+        # settings.json 已存在，备份后合并 hooks
+        BAK_FILE=".claude/settings.json.bak.$(date +%Y%m%d_%H%M%S)"
+        cp .claude/settings.json "$BAK_FILE"
+        echo "  📦 备份已保存: $BAK_FILE"
+
         if command -v jq >/dev/null 2>&1; then
-          BAK_FILE=".claude/settings.json.bak.$(date +%Y%m%d_%H%M%S)"
-          cp .claude/settings.json "$BAK_FILE"
           # 转换旧格式 hooks 并合并新 hooks
           jq \
             --argjson s "$OA_START" \
@@ -235,9 +243,8 @@ EOF
             '.hooks.SessionStart = (.hooks.SessionStart // []) | .hooks.SessionEnd = (.hooks.SessionEnd // []) | .hooks.PreToolUse = (.hooks.PreToolUse // []) | .hooks.PostToolUse = (.hooks.PostToolUse // []) | .hooks.SessionStart = ([$s] + (.hooks.SessionStart | map(if has("matcher") then . else {matcher:"", hooks: [.]} end))) | .hooks.SessionEnd = ([$e] + (.hooks.SessionEnd | map(if has("matcher") then . else {matcher:"", hooks: [.]} end))) | .hooks.PreToolUse = ([$p] + (.hooks.PreToolUse | map(if has("matcher") then . else {matcher:"", hooks: [.]} end))) | .hooks.PostToolUse = ([$o] + (.hooks.PostToolUse | map(if has("matcher") then . else {matcher:"", hooks: [.]} end)))' \
             "$BAK_FILE" > .claude/settings.json
           echo "  ✅ .claude/settings.json 已更新（OpenAllIn hooks 已合并）"
-          echo "  📦 备份已保存: $BAK_FILE"
         else
-          echo "  ⚠️  jq 未安装，无法自动合并 hooks。请手动将 hooks 配置添加到 .claude/settings.json"
+          echo "  ⚠️  jq 未安装，无法自动合并 hooks。原始配置已备份，请手动处理。"
         fi
       else
         # settings.json 不存在，创建新的
