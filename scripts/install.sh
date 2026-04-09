@@ -98,6 +98,9 @@ for tool in "${TOOLS[@]}"; do
       # 创建 .opencode 目录
       mkdir -p .opencode/{skills,agents,rules,commands}
 
+      # 清理旧的 skills 文件（避免与新格式冲突）
+      rm -f .opencode/skills/*.md 2>/dev/null || true
+
       # 复制 commands（oa-* 命令）— OpenCode 需要 <name>/SKILL.md 格式
       for skill_file in "$HARNESS_DIR/skills/oa-"*.md; do
         [ -f "$skill_file" ] || continue
@@ -163,6 +166,9 @@ EOF
       fi
       cp "$HARNESS_DIR/AGENTS.md" CLAUDE.md
       echo "  ✅ CLAUDE.md 已创建/更新"
+
+      # 清理旧的 skills 文件（避免与新格式冲突）
+      rm -f .claude/skills/*.md 2>/dev/null || true
 
       # 复制 commands（oa-* 命令）— Claude Code 需要 <name>/SKILL.md 格式
       for skill_file in "$HARNESS_DIR/skills/oa-"*.md; do
