@@ -14,9 +14,9 @@ All notable changes to this project will be documented in this file.
 - **uninstall.sh**: Complete uninstallation with global settings.json cleanup
 
 ### Changed
-- **Consolidated skills structure**: Removed `skills/` directory, all skills now in `.opencode/skills/oa-*`
-- **Updated install.sh**: Simplified to copy directly from `.opencode/skills/`
-- **Updated AGENTS.md**: Command list now matches actual 16 oa-* skills
+- **Consolidated skills structure**: All skills in `skills/oa-*/` (universal source for all CLI tools)
+- **Updated install.sh**: Copies from `skills/oa-*/` to tool-specific directories
+- **Updated AGENTS.md**: Command list matches actual 16 oa-* skills
 
 ### Fixed
 - Prevent duplicate hooks on re-install
