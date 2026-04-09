@@ -1,6 +1,37 @@
 # OpenAllIn — 全栈 AI 编程 Harness
 
-> 一个面向 AI 编码工具的工程化框架，将六大成熟框架的核心优势融为一体，为团队提供结构化的开发流程和规范。
+> 一个面向 AI 编程工具的工程化框架，将六大成熟框架的核心优势融为一体，为团队提供结构化的开发流程和规范。
+
+---
+
+## 🚀 快速开始
+
+```bash
+# 1. 克隆仓库
+git clone https://github.com/vanrayliu/openallin.git
+
+# 2. 进入你的项目目录（不是克隆的仓库目录）
+cd your-project
+
+# 3. 安装到你的项目（当前目录）
+# 这会在你的项目中创建 .claude/、skills/、rules/ 等
+bash /path/to/openallin/scripts/install.sh claude
+
+# 4. 完成！重启你的 AI 编程工具即可使用
+```
+
+**重要：** 安装是**项目级别**的，不是 home 目录。请在项目目录下运行 `install.sh`。
+
+其他 AI 工具的安装方式：
+```bash
+bash install.sh opencode    # OpenCode
+bash install.sh claude      # Claude Code
+bash install.sh cursor      # Cursor
+bash install.sh codex       # Codex
+bash install.sh             # 安装所有工具
+```
+
+---
 
 ## 为什么需要 OpenAllIn？
 
