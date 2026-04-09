@@ -226,12 +226,13 @@ EOF
         if command -v jq >/dev/null 2>&1; then
           BAK_FILE=".claude/settings.json.bak.$(date +%Y%m%d_%H%M%S)"
           cp .claude/settings.json "$BAK_FILE"
+          # 转换旧格式 hooks 并合并新 hooks
           jq \
             --argjson s "$OA_START" \
             --argjson e "$OA_END" \
             --argjson p "$OA_PRE" \
             --argjson o "$OA_POST" \
-            '.hooks.SessionStart = ([$s] + (.hooks.SessionStart // [])) | .hooks.SessionEnd = ([$e] + (.hooks.SessionEnd // [])) | .hooks.PreToolUse = ([$p] + (.hooks.PreToolUse // [])) | .hooks.PostToolUse = ([$o] + (.hooks.PostToolUse // []))' \
+            '.hooks.SessionStart = (.hooks.SessionStart // []) | .hooks.SessionEnd = (.hooks.SessionEnd // []) | .hooks.PreToolUse = (.hooks.PreToolUse // []) | .hooks.PostToolUse = (.hooks.PostToolUse // []) | .hooks.SessionStart = ([$s] + (.hooks.SessionStart | map(if has("matcher") then . else {matcher:"", hooks: [.]} end))) | .hooks.SessionEnd = ([$e] + (.hooks.SessionEnd | map(if has("matcher") then . else {matcher:"", hooks: [.]} end))) | .hooks.PreToolUse = ([$p] + (.hooks.PreToolUse | map(if has("matcher") then . else {matcher:"", hooks: [.]} end))) | .hooks.PostToolUse = ([$o] + (.hooks.PostToolUse | map(if has("matcher") then . else {matcher:"", hooks: [.]} end)))' \
             "$BAK_FILE" > .claude/settings.json
           echo "  ✅ .claude/settings.json 已更新（OpenAllIn hooks 已合并）"
           echo "  📦 备份已保存: $BAK_FILE"
