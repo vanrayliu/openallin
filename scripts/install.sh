@@ -1,13 +1,17 @@
 #!/bin/bash
 
 # OpenAllIn 安装脚本
-# 用法: bash scripts/install.sh [opencode|claude|cursor|codex|all] [--target dir]
+# 用法: 
+#   bash scripts/install.sh claude                    # 安装到当前目录
+#   bash scripts/install.sh claude --target dir      # 安装到指定目录
+#   bash scripts/install.sh claude dir                # 安装到指定目录（简写）
+#   bash scripts/install.sh opencode claude           # 安装多个工具到当前目录
 
 set -e
 
 HARNESS_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 
-# 解析参数: [tool1] [tool2] ... [--target dir]
+# 解析参数
 TOOLS=()
 TARGET="."
 SKIP_NEXT=false
@@ -30,8 +34,14 @@ for arg in "$@"; do
     -t=*)
       TARGET="${arg#*=}"
       ;;
-    *)
+    opencode|claude|cursor|codex|all)
       TOOLS+=("$arg")
+      ;;
+    *)
+      # 其他参数，检查是否是有效路径
+      if [ -d "$arg" ] || [ "$arg" = "." ]; then
+        TARGET="$arg"
+      fi
       ;;
   esac
 done
