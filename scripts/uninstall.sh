@@ -105,6 +105,23 @@ done
 rm -f *.bak.* 2>/dev/null || true
 find . -name "*.bak.??????_??????" -delete 2>/dev/null || true
 
+# 清理全局 settings.json 中的 OpenAllIn hooks
+if [ -f "$HOME/.claude/settings.json" ] && command -v jq >/dev/null 2>&1; then
+  if jq -e '.hooks.SessionStart[] | select(.hooks[].command | contains("session-start.js"))' "$HOME/.claude/settings.json" >/dev/null 2>&1; then
+    echo ""
+    echo "🧹 清理全局 settings.json 中的 OpenAllIn hooks..."
+    BAK_FILE="$HOME/.claude/settings.json.bak.$(date +%Y%m%d_%H%M%S)"
+    cp "$HOME/.claude/settings.json" "$BAK_FILE"
+    
+    jq 'del(.hooks.SessionStart, .hooks.SessionEnd, .hooks.PreToolUse, .hooks.PostToolUse)' \
+      "$HOME/.claude/settings.json" > "$HOME/.claude/settings.json.tmp" && \
+      mv "$HOME/.claude/settings.json.tmp" "$HOME/.claude/settings.json"
+    
+    echo "  ✅ 已清理 $HOME/.claude/settings.json"
+    echo "  📦 备份已保存: $BAK_FILE"
+  fi
+fi
+
 echo ""
 echo "✅ OpenAllIn 已卸载"
 echo ""
