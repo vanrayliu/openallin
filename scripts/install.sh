@@ -99,21 +99,11 @@ for tool in "${TOOLS[@]}"; do
       mkdir -p .opencode/{skills,agents,rules,commands}
 
       # 复制 commands（oa-* 命令）
-      for cmd_dir in "$HARNESS_DIR/skills/oa-"*; do
-        [ -d "$cmd_dir" ] || continue
-        name=$(basename "$cmd_dir")
-        if [ -f "$cmd_dir/$name.md" ]; then
-          mkdir -p ".opencode/skills/$name"
-          cat > ".opencode/skills/$name/SKILL.md" << EOF
----
-name: $name
-description: OpenAllIn /$name command
----
-
-$(cat "$cmd_dir/$name.md")
-EOF
-          echo "  ✅ command: $name"
-        fi
+      for skill_file in "$HARNESS_DIR/skills/oa-"*.md; do
+        [ -f "$skill_file" ] || continue
+        name=$(basename "$skill_file" .md)
+        cp "$skill_file" ".opencode/skills/"
+        echo "  ✅ command: $name"
       done
 
       # 复制 agents
@@ -174,21 +164,11 @@ EOF
       echo "  ✅ CLAUDE.md 已创建/更新"
 
       # 复制 commands（oa-* 命令）
-      for cmd_dir in "$HARNESS_DIR/skills/oa-"*; do
-        [ -d "$cmd_dir" ] || continue
-        name=$(basename "$cmd_dir")
-        if [ -f "$cmd_dir/$name.md" ]; then
-          mkdir -p ".claude/skills/$name"
-          cat > ".claude/skills/$name/SKILL.md" << EOF
----
-name: $name
-description: OpenAllIn /$name command
----
-
-$(cat "$cmd_dir/$name.md")
-EOF
-          echo "  ✅ command: $name"
-        fi
+      for skill_file in "$HARNESS_DIR/skills/oa-"*.md; do
+        [ -f "$skill_file" ] || continue
+        name=$(basename "$skill_file" .md)
+        cp "$skill_file" ".claude/skills/"
+        echo "  ✅ command: $name"
       done
 
       # 复制 agents

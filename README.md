@@ -182,22 +182,22 @@ openallin/
 │   └── archive/                # Archived changes (by timestamp)
 │
 ├── skills/                      # [Skills Layer] CLI commands (oa-*)
-│   ├── oa-propose/             # Create change proposal
-│   ├── oa-apply/               # Execute tasks from checklist
-│   ├── oa-validate/            # Validate spec format
-│   ├── oa-archive/             # Archive change and merge to specs
-│   ├── oa-discuss/             # Discuss and clarify requirements
-│   ├── oa-plan/                # Plan atomic tasks
-│   ├── oa-execute/             # Execute in waves
-│   ├── oa-verify/              # Verify quality
-│   ├── oa-ship/                # Ship and create PR
-│   ├── oa-team-plan/           # Team planning
-│   ├── oa-team-exec/           # Team execution
-│   ├── oa-team-verify/         # Team verification
-│   ├── oa-brainstorming/       # Brainstorming session
-│   ├── oa-debugging/           # Systematic debugging
-│   ├── oa-writing-plans/       # Plan writing
-│   └── oa-worktree/            # Git Worktree isolation
+│   ├── oa-propose.md          # Create change proposal
+│   ├── oa-apply.md            # Execute tasks from checklist
+│   ├── oa-validate.md          # Validate spec format
+│   ├── oa-archive.md           # Archive change and merge to specs
+│   ├── oa-discuss.md          # Discuss and clarify requirements
+│   ├── oa-plan.md             # Plan atomic tasks
+│   ├── oa-execute.md          # Execute in waves
+│   ├── oa-verify.md           # Verify quality
+│   ├── oa-ship.md             # Ship and create PR
+│   ├── oa-team-plan.md        # Team planning
+│   ├── oa-team-exec.md        # Team execution
+│   ├── oa-team-verify.md      # Team verification
+│   ├── oa-brainstorming.md    # Brainstorming session
+│   ├── oa-debugging.md        # Systematic debugging
+│   ├── oa-writing-plans.md     # Plan writing
+│   └── oa-worktree.md         # Git Worktree isolation
 │
 ├── agents/                      # [Orchestration Layer] Agent definitions
 │   ├── planner.md              # Architect/planner (high-level reasoning)

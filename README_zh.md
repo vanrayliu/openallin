@@ -132,22 +132,22 @@ openallin/
 │   └── archive/                # 已归档的变更（按时间戳）
 │
 ├── skills/                      # [Skills 层] CLI 命令（oa-*）
-│   ├── oa-propose/             # 创建变更提案
-│   ├── oa-apply/               # 执行任务清单
-│   ├── oa-validate/            # 验证规格格式
-│   ├── oa-archive/             # 归档变更并合并规格
-│   ├── oa-discuss/             # 讨论阶段
-│   ├── oa-plan/                # 规划阶段
-│   ├── oa-execute/             # 执行阶段
-│   ├── oa-verify/              # 验证阶段
-│   ├── oa-ship/                # 发布阶段
-│   ├── oa-team-plan/           # 团队规划
-│   ├── oa-team-exec/           # 团队执行
-│   ├── oa-team-verify/         # 团队验证
-│   ├── oa-brainstorming/       # 头脑风暴
-│   ├── oa-debugging/           # 系统化调试
-│   ├── oa-writing-plans/       # 计划编写
-│   └── oa-worktree/            # Git Worktree 隔离
+│   ├── oa-propose.md          # 创建变更提案
+│   ├── oa-apply.md            # 执行任务清单
+│   ├── oa-validate.md         # 验证规格格式
+│   ├── oa-archive.md          # 归档变更并合并规格
+│   ├── oa-discuss.md          # 讨论阶段
+│   ├── oa-plan.md             # 规划阶段
+│   ├── oa-execute.md          # 执行阶段
+│   ├── oa-verify.md           # 验证阶段
+│   ├── oa-ship.md             # 发布阶段
+│   ├── oa-team-plan.md        # 团队规划
+│   ├── oa-team-exec.md        # 团队执行
+│   ├── oa-team-verify.md      # 团队验证
+│   ├── oa-brainstorming.md     # 头脑风暴
+│   ├── oa-debugging.md        # 系统化调试
+│   ├── oa-writing-plans.md     # 计划编写
+│   └── oa-worktree.md         # Git Worktree 隔离
 │
 ├── agents/                      # [Orchestration 层] 专用代理定义
 │   ├── planner.md              # 架构师/规划器（高阶推理）

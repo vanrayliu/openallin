@@ -32,7 +32,7 @@
 | `changes/<name>/proposal.md` | Spec | 变更动机 |
 | `changes/<name>/design.md` | Spec | 技术方案 |
 | `changes/<name>/tasks.md` | Spec | 任务清单 |
-| `skills/oa-*/` | Skills | CLI 命令（oa-propose, oa-brainstorming 等）|
+| `skills/oa-*.md` | Skills | CLI 命令（oa-propose, oa-brainstorming 等）|
 | `workspace/STATE.md` | Workspace | 当前执行状态 |
 | `workspace/ROADMAP.md` | Workspace | 项目路线图 |
 | `config/settings.json` | Enhancement | 全局配置 |
