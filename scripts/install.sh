@@ -56,8 +56,32 @@ if [ ${#TOOLS[@]} -eq 0 ]; then
   elif [ -n "$CLAUDE_CODE" ] || [ -n "$CLAUDE_PROJECT_DIR" ] || [ -d ".claude" ]; then
     TOOLS=(claude)
     echo "🔍 检测到 Claude Code 环境"
+  elif [ -n "$CURSOR" ] || [ -n "$CURSOR_PROJECT_DIR" ] || [ -d ".cursor" ]; then
+    TOOLS=(cursor)
+    echo "🔍 检测到 Cursor 环境"
+  elif [ -n "$CODEX" ] || [ -n "$CODEX_PROJECT_DIR" ] || [ -d ".codex" ]; then
+    TOOLS=(codex)
+    echo "🔍 检测到 Codex 环境"
+  elif [ -n "$OPENCLAW" ] || [ -n "$OPENCLAW_PROJECT_DIR" ] || [ -d ".openclaw" ]; then
+    TOOLS=(openclaw)
+    echo "🔍 检测到 OpenClaw 环境"
+  elif [ -n "$GEMINI_CLI" ] || [ -n "$GEMINI_PROJECT_DIR" ] || [ -d ".gemini" ]; then
+    TOOLS=(gemini)
+    echo "🔍 检测到 Gemini CLI 环境"
+  elif [ -n "$WINDSURF" ] || [ -n "$WINDSURF_PROJECT_DIR" ] || [ -d ".windsurf" ]; then
+    TOOLS=(windsurf)
+    echo "🔍 检测到 Windsurf 环境"
+  elif [ -n "$KILO" ] || [ -n "$KILO_PROJECT_DIR" ] || [ -d ".kilo" ]; then
+    TOOLS=(kilo)
+    echo "🔍 检测到 Kilo Code 环境"
+  elif [ -n "$AUGMENT" ] || [ -n "$AUGMENT_PROJECT_DIR" ] || [ -d ".augment" ]; then
+    TOOLS=(augment)
+    echo "🔍 检测到 Augment 环境"
+  elif [ -n "$ZED" ] || [ -n "$ZED_PROJECT_DIR" ] || [ -d ".zed" ]; then
+    TOOLS=(zed)
+    echo "🔍 检测到 Zed 环境"
   else
-    # 默认安装两个
+    # 默认安装两个最通用的
     TOOLS=(opencode claude)
     echo "🔍 未检测到特定 CLI 环境，安装到 opencode 和 claude"
   fi
@@ -296,6 +320,109 @@ EOF
 
       mkdir -p .codex
       echo "  ✅ Codex 安装完成（通过 AGENTS.md 读取指令）"
+      ;;
+
+    openclaw)
+      echo ""
+      echo "🔧 安装到 OpenClaw..."
+
+      mkdir -p .openclaw/{skills,agents,rules}
+
+      # OpenClaw 技能格式
+      for skill_file in "$HARNESS_DIR/skills/oa-"*.md; do
+        [ -f "$skill_file" ] || continue
+        name=$(basename "$skill_file" .md)
+        mkdir -p ".openclaw/skills/$name"
+        cp "$skill_file" ".openclaw/skills/$name/SKILL.md"
+        echo "  ✅ command: $name"
+      done
+
+      # 复制 agents 和 rules
+      cp -n "$HARNESS_DIR/agents/"*.md ".openclaw/agents/" 2>/dev/null || true
+      cp -n "$HARNESS_DIR/rules/"*.md ".openclaw/rules/" 2>/dev/null || true
+
+      echo "  ✅ OpenClaw 安装完成"
+      ;;
+
+    gemini)
+      echo ""
+      echo "🔧 安装到 Gemini CLI..."
+
+      mkdir -p .gemini
+
+      # Gemini CLI 读取 AGENTS.md
+      if [ ! -f "AGENTS.md" ]; then
+        cp "$HARNESS_DIR/AGENTS.md" .
+        echo "  ✅ AGENTS.md 已创建"
+      fi
+
+      # 复制 skills
+      for skill_file in "$HARNESS_DIR/skills/oa-"*.md; do
+        [ -f "$skill_file" ] || continue
+        name=$(basename "$skill_file" .md)
+        mkdir -p ".gemini/skills/$name"
+        cp "$skill_file" ".gemini/skills/$name/SKILL.md"
+        echo "  ✅ command: $name"
+      done
+
+      echo "  ✅ Gemini CLI 安装完成"
+      ;;
+
+    windsurf)
+      echo ""
+      echo "🔧 安装到 Windsurf..."
+
+      # Windsurf 读取 AGENTS.md
+      if [ ! -f "AGENTS.md" ]; then
+        cp "$HARNESS_DIR/AGENTS.md" .
+        echo "  ✅ AGENTS.md 已创建"
+      fi
+
+      echo "  ✅ Windsurf 安装完成（通过 AGENTS.md 读取指令）"
+      ;;
+
+    kilo)
+      echo ""
+      echo "🔧 安装到 Kilo Code..."
+
+      # Kilo Code 读取 AGENTS.md
+      if [ ! -f "AGENTS.md" ]; then
+        cp "$HARNESS_DIR/AGENTS.md" .
+        echo "  ✅ AGENTS.md 已创建"
+      fi
+
+      echo "  ✅ Kilo Code 安装完成（通过 AGENTS.md 读取指令）"
+      ;;
+
+    augment)
+      echo ""
+      echo "🔧 安装到 Augment..."
+
+      # Augment 读取 AGENTS.md
+      if [ ! -f "AGENTS.md" ]; then
+        cp "$HARNESS_DIR/AGENTS.md" .
+        echo "  ✅ AGENTS.md 已创建"
+      fi
+
+      echo "  ✅ Augment 安装完成（通过 AGENTS.md 读取指令）"
+      ;;
+
+    zed)
+      echo ""
+      echo "🔧 安装到 Zed..."
+
+      # Zed 读取 AGENTS.md
+      if [ ! -f "AGENTS.md" ]; then
+        cp "$HARNESS_DIR/AGENTS.md" .
+        echo "  ✅ AGENTS.md 已创建"
+      fi
+
+      echo "  ✅ Zed 安装完成（通过 AGENTS.md 读取指令）"
+      ;;
+
+    *)
+      echo "⚠️  未知工具：$tool"
+      echo "   支持的工具：opencode, claude, cursor, codex, openclaw, gemini, windsurf, kilo, augment, zed"
       ;;
 
     *)
