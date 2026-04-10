@@ -20,7 +20,7 @@ def generate_full_system(industry: str = "", product: str = "", mood: str = "") 
 
     base_query = f"{industry} {product} {mood}".strip()
 
-    domains = ["style", "product", "color", "typography", "landing", "ux"]
+    domains = ["style", "product", "color", "typography", "landing", "ux", "techstack"]
 
     for domain in domains:
         domain_config = {
@@ -30,6 +30,7 @@ def generate_full_system(industry: str = "", product: str = "", mood: str = "") 
             "typography": f"{mood} {industry} font",
             "landing": f"{product} landing conversion",
             "ux": f"{industry} accessibility ux",
+            "techstack": f"{industry} tech stack",
         }
 
         query = domain_config.get(domain, base_query)
@@ -53,7 +54,15 @@ def main():
     parser.add_argument("--mood", help="Design mood")
     parser.add_argument(
         "--domain",
-        choices=["style", "product", "color", "typography", "landing", "ux"],
+        choices=[
+            "style",
+            "product",
+            "color",
+            "typography",
+            "landing",
+            "ux",
+            "techstack",
+        ],
         help="Search domain",
     )
     parser.add_argument("--full", action="store_true", help="Generate full system")

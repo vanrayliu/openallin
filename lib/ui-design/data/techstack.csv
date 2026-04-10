@@ -14,3 +14,4 @@ astro,hybrid,astro_components,none,astro_style,astro_router,ssr_partial,none,con
 svelte,frontend,svelte_components,stores,svelte_style,svelte_router,ssr_none,vitest,lightweight,轻量高性能新选择
 django,fullstack,django_templates,forms_session,static_files,django_urls,cache_db,pytest,python_apps,python生态稳定框架
 rails,fullstack,erb_components,session,tailwind/rails,rails_routes,cache_assets,rspec,rapid_dev,快速开发传统强大
+solidjs,frontend,solid_components,signals,solid_style,solid_router,solid_lazy,none,performance,细粒度响应式高性能

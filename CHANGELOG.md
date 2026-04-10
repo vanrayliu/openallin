@@ -2,15 +2,35 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v1.7.1] - 2026-04-11
+
+### Fixed
+- **UI design data files**: Corrected data counts
+  - styles.csv: 70 UI styles (animations, interactions, effects)
+  - products.csv: 125 industry/product types
+  - colors.csv: 16 color palettes
+  - typography.csv: 66 font pairings (context-specific)
+  - landing.csv: 12 landing page patterns
+  - ux.csv: 20 UX principles
+  - techstack.csv: 15 tech stack guidelines
+  - **Total**: 324 entries (consistent across all docs)
+- **BM25 tokenize**: Added underscore splitting for better matching
+- **design_system.py**: Added techstack domain support
+- **skills/oa-ui-design.md**: Fixed data counts in Implementation section
+
+---
+
 ## [v1.7.0] - 2026-04-11
 
 ### Added
 - **/oa-ui-design command**: Professional UI/UX design intelligence system
-  - 161 industry-specific design rules (Tech, Finance, Healthcare, E-commerce, Services, Creative, Lifestyle, Emerging Tech)
-  - 67 UI styles (Minimalism, Glassmorphism, Neumorphism, Brutalism, Dark Mode, Bento Grid, AI-Native UI, Spatial UI, etc.)
-  - 161 color palettes with industry-appropriate recommendations
-  - 57 typography pairings (Google Fonts compatible)
+  - 125 industry/product types (Tech, Finance, Healthcare, E-commerce, Services, Creative, Lifestyle, Emerging Tech)
+  - 70 UI styles (Minimalism, Glassmorphism, Neumorphism, Brutalism, Dark Mode, Bento Grid, AI-Native UI, Spatial UI, animations, interactions, etc.)
+  - 16 color palettes with industry-appropriate recommendations
+  - 66 typography pairings (Google Fonts compatible, context-specific)
   - 15 tech stack guidelines (React, Next.js, Vue, SwiftUI, Flutter, etc.)
+  - 12 landing page patterns
+  - 20 UX principles (WCAG compatible)
   - Pre-delivery checklist (accessibility, responsiveness, performance, interaction)
   - Anti-patterns detection (what NOT to do)
   - Integration points: after `/oa-brainstorming`, before `/oa-execute`
@@ -22,7 +42,10 @@ All notable changes to this project will be documented in this file.
   - Color contrast quick reference
   - Animation timing guide
   - Font loading best practices
+- **BM25 search engine**: `lib/ui-design/scripts/core.py` (Okapi BM25 implementation)
+- **Design system generator**: `lib/ui-design/scripts/design_system.py`
 - **Inspired by UI UX Pro Max**: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill (62.4K stars)
+- **All implementations are self-written, not copied**
 
 ### Changed
 - **Updated AGENTS.md**: Added `/oa-ui-design` command (23 commands)

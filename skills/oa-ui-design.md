@@ -70,7 +70,7 @@ graph TD
 +----------------------------------------------------------------------------------------+
 ```
 
-## Data Files (327 Total Entries)
+## Data Files (324 Total Entries)
 
 ### CSV Data Files
 - `styles.csv` — 70 UI styles (minimal, glassmorphism, neumorphism, etc.)
@@ -340,12 +340,13 @@ This skill uses a custom BM25 search engine for intelligent recommendations:
 - `lib/ui-design/scripts/design_system.py` — Design system generator
 
 ### Data Files
-- `lib/ui-design/data/styles.csv` — 21 UI styles
-- `lib/ui-design/data/products.csv` — 22 product types
+- `lib/ui-design/data/styles.csv` — 70 UI styles
+- `lib/ui-design/data/products.csv` — 125 product types
 - `lib/ui-design/data/colors.csv` — 16 color palettes
-- `lib/ui-design/data/typography.csv` — 12 font pairings
+- `lib/ui-design/data/typography.csv` — 66 font pairings
 - `lib/ui-design/data/landing.csv` — 12 landing patterns
 - `lib/ui-design/data/ux.csv` — 20 UX principles
+- `lib/ui-design/data/techstack.csv` — 15 tech stacks
 
 ### Quick Search Examples
 
