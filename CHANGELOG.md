@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v1.6.0] - 2026-04-10
+
+### Added
+- **/oa-review command**: Comprehensive code, design, and architecture review
+  - Code quality review (style, structure, readability, performance)
+  - Design review (UI/UX consistency, accessibility WCAG 2.1, responsive design)
+  - Architecture review (SOLID principles, design patterns, module coupling)
+  - Security awareness (quick check, detailed check via `/oa-security`)
+  - Integration points: after `/oa-execute`, before `/oa-ship`
+- **Design review library**: `lib/review/design-checklist.md`
+  - UI consistency checklist (color, typography, spacing, components)
+  - UX best practices (navigation, forms, feedback, empty states)
+  - Accessibility checklist (WCAG 2.1, keyboard navigation, screen reader)
+  - Responsive design checklist (breakpoints, mobile optimization)
+  - Visual polish checklist (layout, animations, images)
+- **Architecture review library**: `lib/review/architecture-checklist.md`
+  - SOLID principles (SRP, OCP, LSP, ISP, DIP)
+  - Design patterns (creational, structural, behavioral)
+  - Module coupling (coupling types, cohesion types)
+  - Layered architecture (presentation, application, domain, infrastructure)
+  - Error handling, dependency management, scalability, performance, testing
+- **Natural language routing examples**:
+  - Review: "review 代码", "代码审查", "设计审查", "架构审查", "审查 UI/UX"
+
+### Changed
+- **Updated QUICKREF.md**: Command count increased from 21 to 22
+- **Updated USAGE.md**: Added review routing examples
+- **Updated USAGE_EN.md**: Added review routing examples in English
+- **Updated skill trigger table**: Changed "任务完成 → code-review" to "任务完成 → oa-review"
+
+### Documentation
+- All documentation now consistent: 22 skills, Phase 1 + Phase 2 + Phase 3 complete
+- Total: 22 commands (within 20-22 target) ✅
+
+---
+
 ## [v1.5.0] - 2026-04-10
 
 ### Added

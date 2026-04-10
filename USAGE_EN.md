@@ -692,6 +692,16 @@ AI will automatically:
 | "Performance test" | Call `/oa-benchmark` |
 | "API performance benchmark" | Call `/oa-benchmark` + API benchmark |
 
+#### Review
+
+| What You Say | What AI Does |
+|--------------|--------------|
+| "Review code" | Call `/oa-review` |
+| "Code review" | Call `/oa-review` |
+| "Design review" | Call `/oa-review` + design check |
+| "Architecture review" | Call `/oa-review` + architecture check |
+| "Review UI/UX" | Call `/oa-review` + UI/UX check |
+
 #### Queries
 
 | What You Say | What AI Does |
