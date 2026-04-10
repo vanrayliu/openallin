@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v1.3.0] - 2026-04-10
+
+### Added
+- **Auto-detect 10+ CLI tools**: OpenCode, Claude Code, Cursor, Codex, OpenClaw, Gemini CLI, Windsurf, Kilo Code, Augment, Zed
+- **/oa-tdd command**: Test-driven development workflow (Red-Green-Refactor cycle)
+- **Comprehensive User Guide**:
+  - Chinese version: `USAGE.md` (1174 lines, 9 chapters)
+  - English version: `USAGE_EN.md` (1178 lines, 9 chapters)
+- **Natural language installation guide**: Install OpenAllIn via AI assistant with Git URL
+- **Natural language usage guide**: Use OpenAllIn with natural language instead of commands
+  - 15+ natural language phrases quick reference
+  - When to use commands vs natural language comparison table
+  - Good/poor expression examples
+
+### Changed
+- **Updated README.md**: Added user guide links at the top
+- **Updated QUICKREF.md**: All 17 commands listed
+- **Updated AGENTS.md**: Consistent command examples
+
+### Fixed
+- **Skills directory structure**: Corrected from nested to flat structure (`proposal.md` not `proposal/proposal.md`)
+- **README.md skills count**: Fixed mismatch (16 → 17)
+- **USAGE.md duplicate content**: Removed duplicate Q11 and Q12
+- **Natural language installation**: Now requires Git URL (e.g., `https://github.com/vanrayliu/openallin`)
+
+### Documentation
+- All documents now consistent: 17 skills, 9 chapters, 10+ supported CLI tools
+- Total documentation: 2000+ lines
+
 ## [v1.2.0] - 2026-04-09
 
 ### Added
