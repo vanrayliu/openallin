@@ -57,7 +57,7 @@ AI coding tools are powerful, but 6 common instabilities often emerge in practic
 | Layer 6 | Workspace | AI lacks long-term memory → File-based state & memory |
 | Layer 5 | Orchestration | Team collaboration chaos → Multi-Agent coordination |
 | Layer 4 | Execution | Long对话上下文崩溃 → Phase-based workflows |
-| Layer 3 | Enhancement | Security/verification gaps → Hook automation |
+| Layer 3 | Enhancement | Security/verification gaps → Hook automation + security audit, deployment verification, browser testing, performance benchmarking |
 | Layer 2 | Skills | AI codes like an intern → Engineering methodology skill library |
 | Layer 1 | Spec | AI doesn't know what you want → Spec-driven development |
 
