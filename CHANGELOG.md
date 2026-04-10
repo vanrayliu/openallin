@@ -86,7 +86,7 @@ All notable changes to this project will be documented in this file.
   - Monitors CI/CD pipeline status
   - Runs smoke tests on deployed environment
   - Generates rollback plan if deployment fails
-  - Integration points: after `/oa-ship` and `/oa-merge`
+  - Integration points: after `/oa-ship` and successful PR merge
 - **Security library**: `lib/security/`
   - `checklist.md`: Quick reference for OWASP Top 10 and STRIDE
   - `patterns.md`: Detailed vulnerability patterns with detection and fixes

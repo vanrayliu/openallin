@@ -53,7 +53,7 @@
 - Smoke tests (homepage, API, auth, database, static assets)
 - Rollback plan generation
 - Support for Git, Kubernetes, AWS, Heroku, Docker rollback
-- Integration points: after `/oa-ship` and `/oa-merge`
+- Integration points: after `/oa-ship` and successful PR merge
 
 **Natural Language Routing**:
 - "部署到生产" → `/oa-land`

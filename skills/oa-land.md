@@ -1,3 +1,8 @@
+---
+name: oa-land
+description: OpenAllIn /oa-land 命令 — 部署验证与回滚
+---
+
 # /oa-land — Land and Deploy
 
 > Verify deployment after merge. Catch deployment issues early.
@@ -9,7 +14,7 @@ Ensure deployment succeeds after merging code to main branch. Catch deployment f
 ## When to Use
 
 - After `/oa-ship` and successful PR merge
-- After `/oa-merge` (optional auto-run)
+- After `/oa-ship` and successful PR merge (optional auto-run)
 - Manual deployment verification: `/oa-land`
 - When user asks: "部署", "deploy", "land", "上线"
 
@@ -145,13 +150,13 @@ User can enable auto-run in project settings.
 
 ---
 
-### After `/oa-merge`
+### After PR Merge
 
 ```
-/oa-merge → /oa-land
+PR merge → /oa-land
 ```
 
-After successful merge, run `/oa-land` to verify deployment.
+After successful PR merge, run `/oa-land` to verify deployment.
 
 ---
 
@@ -642,7 +647,7 @@ Next step: Fix deployment issue and create new PR.
 ## Related Skills
 
 - `/oa-ship` — Ship code (triggers `/oa-land` if auto-run enabled)
-- `/oa-merge` — Merge PR (triggers `/oa-land`)
+- Manual merge — Merge PR, then run `/oa-land`
 - `/oa-security` — Security audit (run before `/oa-land`)
 - `/oa-review` — Code review (run before `/oa-land`)
 

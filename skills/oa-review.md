@@ -1,3 +1,8 @@
+---
+name: oa-review
+description: OpenAllIn /oa-review 命令 — 代码/设计/架构审查
+---
+
 # /oa-review — Code, Design, and Architecture Review
 
 > Comprehensive review covering code quality, UI/UX design, and software architecture.
@@ -542,7 +547,7 @@ Recommendation: Reduce coupling and fix LSP violation.
 ## Related Skills
 
 - `/oa-security` — Detailed security audit (OWASP + STRIDE)
-- `/oa-test` — Testing (code coverage)
+- `/oa-verify` — Testing and verification (code coverage)
 - `/oa-ship` — Ship (blocked by review issues)
 - `/oa-qa-browser` — Browser testing (includes accessibility tests)
 

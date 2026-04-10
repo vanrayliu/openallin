@@ -58,7 +58,7 @@
   4. Run smoke tests on deployed environment
   5. Rollback if critical issues detected
 - Integration points:
-  - After `/oa-ship` and `/oa-merge`
+  - After `/oa-ship` and successful PR merge
   - Manual invocation: `/oa-land`
 - Output format:
   - Deployment status (Success/Failed)
@@ -85,7 +85,7 @@
 - Update `USAGE.md` and `USAGE_EN.md` with routing examples
 - Add routing logic to AGENTS.md
 - Common patterns:
-  - "测试这个功能" → `/oa-test`
+  - "测试这个功能" → `/oa-qa-browser` (browser tests) or `/oa-verify` (general tests)
   - "写个计划" → `/oa-plan`
   - "部署到生产" → `/oa-land`
   - "检查安全性" → `/oa-security`

@@ -1,3 +1,8 @@
+---
+name: oa-qa-browser
+description: OpenAllIn /oa-qa-browser 命令 — 浏览器测试（Playwright）
+---
+
 # /oa-qa-browser — Browser Testing
 
 > Real browser testing with Playwright. Visual and functional validation.
@@ -787,7 +792,7 @@ Recommendation: Change background to darker color (#E63946)
 
 ## Related Skills
 
-- `/oa-test` — Unit/integration tests (non-browser)
+- `/oa-verify` — Unit/integration tests (non-browser)
 - `/oa-benchmark` — Performance testing (API/backend)
 - `/oa-review` — Code review (includes accessibility awareness)
 - `/oa-land` — Deployment verification (can trigger `/oa-qa-browser`)

@@ -1,3 +1,8 @@
+---
+name: oa-security
+description: OpenAllIn /oa-security 命令 — 安全审计（OWASP + STRIDE）
+---
+
 # /oa-security — Security Audit
 
 > Automated security review using OWASP Top 10 and STRIDE threat modeling.
@@ -508,7 +513,7 @@ Fix the issue and rerun /oa-security before proceeding.
 ## Related Skills
 
 - `/oa-review` — Code review (includes security awareness)
-- `/oa-test` — Testing (includes security tests)
+- `/oa-verify` — Testing and verification (includes security tests)
 - `/oa-ship` — Ship (blocked by security issues)
 
 ---

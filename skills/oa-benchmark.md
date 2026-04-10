@@ -1,3 +1,8 @@
+---
+name: oa-benchmark
+description: OpenAllIn /oa-benchmark 命令 — 性能测试与基准
+---
+
 # /oa-benchmark — Performance Testing
 
 > Automated performance testing and benchmarking.
