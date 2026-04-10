@@ -14,7 +14,7 @@ description: OpenAllIn /oa-archive 命令 — 归档变更并合并到规格库
 - 格式：`/oa-archive add-user-login`
 
 ### 2. 验证变更完成
-- 检查 `changes/<name>/tasks/tasks.md` 中所有任务是否完成
+- 检查 `changes/<name>/tasks.md` 中所有任务是否完成
 - 如果有未完成任务，提示用户先完成
 
 ### 3. 运行归档脚本

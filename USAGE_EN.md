@@ -65,13 +65,17 @@ ls -la
 # project.md      - Project context (keep if exists)
 # .opencode/      - OpenCode config (if installed opencode)
 # .claude/        - Claude Code config (if installed claude)
-# rules/          - Coding standards
+# agents/         - Agent role definitions (planner, implementer, reviewer, etc.)
+# rules/          - Coding standards and security rules
 # scripts/        - Utility scripts (init/install/validate/archive/uninstall)
 # specs/          - Specs directory
 # workspace/      - Workspace
 # templates/      - Template library
 # changes/        - Change proposals directory
 # config/         - Configuration files
+# tasks/          - Task-driven workflow directory
+# hooks/          - Event hooks (session start/end/tool calls)
+# examples/       - Example change proposals (for learning)
 ```
 
 **Check CLI configuration:**
@@ -440,7 +444,7 @@ bash scripts/uninstall.sh --force
 **Uninstall will delete:**
 - `AGENTS.md`, `CLAUDE.md`, `project.md`
 - `.claude/`, `.opencode/` directories
-- `rules/`, `scripts/`, `specs/`, `templates/`, `workspace/`, `config/`, `changes/`, `tasks/` directories
+- `agents/`, `hooks/`, `rules/`, `scripts/`, `specs/`, `templates/`, `workspace/`, `config/`, `changes/`, `tasks/`, `.planning/` directories
 
 **Will NOT delete:**
 - Your business code

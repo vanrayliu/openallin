@@ -65,13 +65,17 @@ ls -la
 # project.md      - 项目上下文（已存在则保留）
 # .opencode/      - OpenCode 配置（如果安装了 opencode）
 # .claude/        - Claude Code 配置（如果安装了 claude）
-# rules/          - 编码规范
+# agents/         - Agent 角色定义（planner, implementer, reviewer 等）
+# rules/          - 编码规范和安全规则
 # scripts/        - 工具脚本（init/install/validate/archive/uninstall）
 # specs/          - 规格目录
 # workspace/      - 工作区
 # templates/      - 模板库
 # changes/        - 变更提案目录
 # config/         - 配置文件
+# tasks/          - 任务驱动工作流目录
+# hooks/          - 事件钩子（session start/end/tool calls）
+# examples/       - 示例变更提案（学习参考）
 ```
 
 **检查 CLI 配置文件：**
@@ -440,7 +444,7 @@ bash scripts/uninstall.sh --force
 **卸载会删除：**
 - `AGENTS.md`、`CLAUDE.md`、`project.md`
 - `.claude/`、`.opencode/` 目录
-- `rules/`、`scripts/`、`specs/`、`templates/`、`workspace/`、`config/`、`changes/`、`tasks/` 目录
+- `agents/`、`hooks/`、`rules/`、`scripts/`、`specs/`、`templates/`、`workspace/`、`config/`、`changes/`、`tasks/`、`.planning/` 目录
 
 **不会删除：**
 - 你的业务代码

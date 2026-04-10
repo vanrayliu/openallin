@@ -15,10 +15,10 @@ description: OpenAllIn /oa-validate 命令 — 验证规格文档格式
 
 ### 2. 验证目录结构
 检查 `changes/<name>/` 是否包含：
-- `proposal/proposal.md`
-- `design/design.md`
+- `proposal.md`
+- `design.md`
 - `specs/`
-- `tasks/tasks.md`
+- `tasks.md`
 
 ### 3. 验证文档内容
 对每个文档检查：

@@ -14,11 +14,11 @@ description: OpenAllIn /oa-apply 命令 — 执行变更任务清单
 - 格式：`/oa-apply add-user-login`
 
 ### 2. 验证变更存在
-- 检查 `changes/<name>/tasks/tasks.md` 是否存在
+- 检查 `changes/<name>/tasks.md` 是否存在
 - 如果不存在，提示用户先运行 `/oa-propose <name>`
 
 ### 3. 读取任务清单
-打开 `changes/<name>/tasks/tasks.md`，按顺序执行未完成的任务。
+打开 `changes/<name>/tasks.md`，按顺序执行未完成的任务。
 
 ### 4. 执行任务
 对每个未完成的任务：
@@ -33,7 +33,7 @@ description: OpenAllIn /oa-apply 命令 — 执行变更任务清单
 
 ## 输出
 
-- 更新 `changes/<name>/tasks/tasks.md`
+- 更新 `changes/<name>/tasks.md`
 - 报告执行进度和结果
 
 ## 注意事项

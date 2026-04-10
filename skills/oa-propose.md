@@ -16,16 +16,16 @@ description: OpenAllIn /oa-propose 命令 — 创建变更提案
 ### 2. 创建变更目录结构
 ```
 changes/<name>/
-├── proposal/proposal.md    # 提案文档
-├── design/design.md        # 设计文档
-├── specs/                   # 规格文档
-│   └── api.md
-└── tasks/tasks.md          # 任务清单
+├── proposal.md    # 提案文档
+├── design.md      # 设计文档
+├── specs/         # 规格文档
+│   └── *.md
+└── tasks.md       # 任务清单
 ```
 
 ### 3. 生成提案模板
 
-创建 `changes/<name>/proposal/proposal.md`：
+创建 `changes/<name>/proposal.md`：
 ```markdown
 # 变更提案: <name>
 
@@ -47,7 +47,7 @@ changes/<name>/
 
 ### 4. 生成设计模板
 
-创建 `changes/<name>/design/design.md`：
+创建 `changes/<name>/design.md`：
 ```markdown
 # 设计方案: <name>
 
@@ -62,7 +62,7 @@ changes/<name>/
 
 ### 5. 生成任务模板
 
-创建 `changes/<name>/tasks/tasks.md`：
+创建 `changes/<name>/tasks.md`：
 ```markdown
 # 任务清单: <name>
 
