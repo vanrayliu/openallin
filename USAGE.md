@@ -8,11 +8,13 @@
 
 1. [老项目如何使用 OpenAllIn](#一老项目如何使用-openallin)
 2. [新项目如何使用 OpenAllIn](#二新项目如何使用-openallin)
-3. [常用工作流](#三常用工作流)
-4. [常见问题](#四常见问题)
-5. [下一步](#五下一步)
-6. [最佳实践](#六最佳实践)
-7. [获取帮助](#七获取帮助)
+3. [通过 AI 助手安装 OpenAllIn（推荐）](#三通过-ai-助手安装-openallin推荐)
+4. [通过自然语言使用 OpenAllIn](#四通过自然语言使用-openallin)
+5. [常用工作流](#五常用工作流)
+6. [常见问题](#六常见问题)
+7. [下一步](#七下一步)
+8. [最佳实践](#八最佳实践)
+9. [获取帮助](#九获取帮助)
 
 ---
 
@@ -274,7 +276,449 @@ claude
 
 ---
 
-## 三、常用工作流
+## 三、通过 AI 助手安装 OpenAllIn（推荐）
+
+> 如果你是 Claude Code、OpenCode 等工具的用户，可以通过自然语言直接让 AI 帮你安装，无需手动执行命令。
+
+### 适用场景
+
+- ✅ 你正在使用 Claude Code、OpenCode 等 AI 编程工具
+- ✅ 你希望用对话方式完成安装
+- ✅ 你想让 AI 自动处理配置细节
+
+### 方式 1：在现有项目中安装
+
+**步骤 1：打开你的项目**
+
+```bash
+cd /path/to/your-project
+opencode  # 或 claude
+```
+
+**步骤 2：对 AI 说**
+
+```
+请帮我安装 OpenAllIn
+```
+
+**AI 会做什么：**
+
+```
+AI: 好的，我来帮你安装 OpenAllIn。
+
+1. 首先克隆 OpenAllIn 仓库到临时目录...
+   ✅ git clone https://github.com/vanrayliu/openallin.git /tmp/openallin
+
+2. 检测到你在使用 OpenCode，开始安装...
+   ✅ 创建 .opencode/ 目录
+   ✅ 安装 17 个命令（oa-propose, oa-brainstorming, oa-tdd 等）
+   ✅ 复制 agents/（角色定义）
+   ✅ 复制 rules/（编码规范）
+   ✅ 创建 specs/, changes/, workspace/ 等目录
+
+3. 安装完成！请重启 OpenCode 以加载新命令。
+
+接下来你可以：
+- 编辑 project.md 填入项目信息
+- 使用 /oa-brainstorming 开始头脑风暴
+- 使用 /oa-propose <name> 创建变更提案
+```
+
+**步骤 3：验证安装**
+
+你：
+```
+检查一下 OpenAllIn 是否安装成功
+```
+
+AI：
+```
+AI: 检查安装状态...
+
+✅ AGENTS.md 存在
+✅ project.md 存在
+✅ .opencode/skills/ 存在
+✅ 17 个命令已安装：
+   - /oa-propose
+   - /oa-apply
+   - /oa-validate
+   - /oa-archive
+   - /oa-discuss
+   - /oa-plan
+   - /oa-execute
+   - /oa-verify
+   - /oa-ship
+   - /oa-brainstorming
+   - /oa-debugging
+   - /oa-tdd
+   - /oa-writing-plans
+   - /oa-worktree
+   - /oa-team-plan
+   - /oa-team-exec
+   - /oa-team-verify
+
+✅ OpenAllIn 安装成功！
+```
+
+---
+
+### 方式 2：创建新项目并安装
+
+**步骤 1：创建项目目录并打开 AI 工具**
+
+```bash
+mkdir my-new-project
+cd my-new-project
+opencode  # 或 claude
+```
+
+**步骤 2：对 AI 说**
+
+```
+帮我创建一个新项目，并安装 OpenAllIn
+```
+
+**AI 会做什么：**
+
+```
+AI: 好的，我来帮你创建新项目并安装 OpenAllIn。
+
+1. 初始化 Git 仓库...
+   ✅ git init
+
+2. 克隆并安装 OpenAllIn...
+   ✅ 安装所有组件
+
+3. 初始化项目结构...
+   ✅ 创建 workspace/STATE.md
+   ✅ 创建 workspace/ROADMAP.md
+   ✅ 创建 config/settings.json
+
+4. 项目已准备就绪！
+
+接下来你需要：
+1. 编辑 project.md 填入项目信息
+2. 初始化你的技术栈（npm init / go mod init 等）
+
+要我帮你初始化什么技术栈吗？比如：
+- "初始化一个 React + TypeScript 项目"
+- "初始化一个 Go 项目"
+- "初始化一个 Python FastAPI 项目"
+```
+
+---
+
+### 方式 3：指定安装配置
+
+**只安装特定组件：**
+
+```
+只安装 OpenAllIn 的 brainstorming 和 tdd 命令
+```
+
+**指定 CLI 工具：**
+
+```
+我是用 Claude Code 的，帮我安装 OpenAllIn
+```
+
+**同时安装到多个工具：**
+
+```
+帮我同时安装到 OpenCode 和 Claude Code
+```
+
+---
+
+### 安装后的配置
+
+**编辑项目上下文：**
+
+```
+帮我编辑 project.md，这是一个电商平台项目，使用 React + Node.js + PostgreSQL
+```
+
+AI 会自动帮你填充：
+- 技术栈信息
+- 架构模式
+- 业务领域
+
+**配置团队规范：**
+
+```
+我们团队使用 ESLint + Prettier，提交信息遵循 Conventional Commits
+```
+
+AI 会更新 `rules/coding-standards.md` 和 `rules/commit-rules.md`。
+
+---
+
+### 常用自然语言命令速查
+
+| 你说的 | AI 做的事 |
+|--------|----------|
+| "安装 OpenAllIn" | 执行完整安装流程 |
+| "检查安装状态" | 验证所有组件是否正确安装 |
+| "卸载 OpenAllIn" | 运行卸载脚本 |
+| "更新 OpenAllIn" | 重新安装最新版本 |
+| "编辑 project.md" | 引导填写项目信息 |
+| "配置团队规范" | 更新 rules/ 目录 |
+
+---
+
+### 为什么推荐自然语言安装？
+
+| 对比项 | 命令行安装 | 自然语言安装 |
+|--------|-----------|-------------|
+| **学习成本** | 需要记住命令 | 直接说需求 |
+| **错误处理** | 需要自己排查 | AI 自动解决 |
+| **配置引导** | 手动编辑文件 | AI 引导填写 |
+| **适合人群** | 熟悉命令行的开发者 | 所有用户 |
+| **灵活性** | 完全控制 | AI 辅助决策 |
+
+**推荐：** 如果你正在使用 AI 编程工具，优先选择自然语言安装。
+
+---
+
+## 四、通过自然语言使用 OpenAllIn
+
+> 除了使用 `/oa-*` 命令，你还可以直接用自然语言描述需求，让 AI 助手自动选择并执行合适的命令。
+
+### 为什么用自然语言？
+
+| 命令方式 | 自然语言方式 |
+|---------|------------|
+| 需要记住命令名称 | 直接说需求 |
+| 需要了解命令参数 | AI 自动推断 |
+| 需要手动执行多个命令 | AI 自动串联执行 |
+| 适合：熟练用户 | 适合：所有用户 |
+
+---
+
+### 基础用法示例
+
+#### 1. 创建变更
+
+**命令方式：**
+```
+/oa-propose add-user-login
+/oa-validate add-user-login
+```
+
+**自然语言方式：**
+```
+我想添加一个用户登录功能，帮我创建变更提案
+```
+
+AI 会自动：
+1. 识别需求 → 调用 `/oa-propose user-login`
+2. 创建提案文件
+3. 验证规格格式
+
+---
+
+#### 2. 头脑风暴
+
+**命令方式：**
+```
+/oa-brainstorming
+```
+然后手动回答 5 轮问题。
+
+**自然语言方式：**
+```
+我想做一个用户登录功能，不确定具体怎么做，帮我梳理一下
+```
+
+AI 会自动：
+1. 启动头脑风暴模式
+2. 引导你完成需求分析
+3. 生成总结文档
+
+---
+
+#### 3. 规划任务
+
+**命令方式：**
+```
+/oa-plan user-login
+```
+
+**自然语言方式：**
+```
+用户登录功能需要拆分成哪些任务？帮我规划一下
+```
+
+AI 会自动：
+1. 分析需求
+2. 拆分原子任务
+3. 规划执行波次
+
+---
+
+#### 4. 执行任务
+
+**命令方式：**
+```
+/oa-execute user-login
+/oa-verify user-login
+```
+
+**自然语言方式：**
+```
+开始执行用户登录功能的任务，完成后验证一下
+```
+
+AI 会自动：
+1. 执行所有任务
+2. 运行验证
+3. 报告结果
+
+---
+
+### 高级用法示例
+
+#### 完整工作流（一句话触发）
+
+```
+帮我实现用户登录功能，从需求分析到代码实现全部完成
+```
+
+AI 会自动执行：
+1. 头脑风暴 → 理清需求
+2. 创建提案 → 生成规格
+3. 规划任务 → 拆分工作
+4. 执行任务 → 写代码
+5. 验证质量 → 确保正确
+6. 创建 PR → 提交代码
+
+---
+
+#### Bug 修复
+
+**命令方式：**
+```
+/oa-debugging 登录失败后页面卡住
+```
+
+**自然语言方式：**
+```
+登录失败后页面一直转圈，帮我定位并修复这个问题
+```
+
+AI 会自动：
+1. 启动调试模式
+2. 多轮问答定位问题
+3. 修复代码
+4. 验证修复
+
+---
+
+#### TDD 开发
+
+**命令方式：**
+```
+/oa-tdd 用户登录功能
+```
+
+**自然语言方式：**
+```
+用 TDD 的方式开发用户登录功能
+```
+
+AI 会自动：
+1. 先写测试（Red）
+2. 写实现代码（Green）
+3. 重构优化（Refactor）
+4. 循环直到完成
+
+---
+
+### 常用自然语言短语速查
+
+#### 需求相关
+
+| 你说的 | AI 做的事 |
+|--------|----------|
+| "我想做 XXX 功能" | 启动头脑风暴 |
+| "帮我分析一下 XXX 需求" | 调用 `/oa-brainstorming` |
+| "创建 XXX 功能的变更提案" | 调用 `/oa-propose` |
+| "验证一下这个变更的规格" | 调用 `/oa-validate` |
+
+#### 任务相关
+
+| 你说的 | AI 做的事 |
+|--------|----------|
+| "帮我规划 XXX 的任务" | 调用 `/oa-plan` |
+| "开始执行任务" | 调用 `/oa-execute` |
+| "检查一下完成情况" | 调用 `/oa-verify` |
+| "提交这个变更" | 调用 `/oa-ship` |
+
+#### 调试相关
+
+| 你说的 | AI 做的事 |
+|--------|----------|
+| "XXX 有 bug，帮我修复" | 调用 `/oa-debugging` |
+| "页面报错了：XXX" | 分析错误 → 修复 |
+| "测试失败了：XXX" | 定位问题 → 修复 |
+
+#### 查询相关
+
+| 你说的 | AI 做的事 |
+|--------|----------|
+| "查看当前项目状态" | 读取 `workspace/STATE.md` |
+| "有哪些未完成的任务？" | 检查 `changes/*/tasks.md` |
+| "XXX 功能的规格是什么？" | 读取 `specs/*/spec.md` |
+| "项目的测试覆盖率如何？" | 运行测试并分析 |
+
+---
+
+### 自然语言最佳实践
+
+#### ✅ 好的表达方式
+
+```
+✅ "我想添加用户登录功能，支持用户名密码和手机验证码两种方式"
+   → 需求清晰，AI 能准确理解
+
+✅ "帮我实现购物车功能，包括添加商品、修改数量、删除商品"
+   → 功能点明确，AI 能拆分任务
+
+✅ "这个 API 接口返回 500 错误，日志显示数据库连接超时"
+   → 问题具体，AI 能快速定位
+```
+
+#### ❌ 不好的表达方式
+
+```
+❌ "帮我写个功能"
+   → 太模糊，AI 不知道你要什么
+
+❌ "代码不工作"
+   → 没说哪个功能、什么错误
+
+❌ "优化一下"
+   → 没说优化什么、优化目标是什么
+```
+
+---
+
+### 自然语言 vs 命令：何时使用哪种？
+
+| 场景 | 推荐方式 | 原因 |
+|------|---------|------|
+| 简单、明确的任务 | 命令 | 快速、精确 |
+| 复杂、多步骤任务 | 自然语言 | AI 自动串联 |
+| 不确定如何开始 | 自然语言 | AI 引导思考 |
+| 调试、排查问题 | 自然语言 | 交互式问答 |
+| 批量操作 | 命令 | 可脚本化 |
+| 学习、探索 | 自然语言 | AI 解释说明 |
+
+**建议：** 新用户从自然语言开始，熟练后两种方式混合使用。
+
+---
+
+## 五、常用工作流
 
 ### 工作流 1：快速变更（适合小功能）
 
@@ -407,7 +851,7 @@ AI: 已定位问题：src/auth/login.js:42
 
 ---
 
-## 四、常见问题
+## 六、常见问题
 
 ### Q1: 安装后看不到 `/oa-*` 命令？
 
@@ -633,56 +1077,6 @@ bash scripts/install.sh
 tar -xzf openallin-backup.tar.gz
 ```
 
-### Q11: 如何在多项目中使用 OpenAllIn？
-
-每个项目独立安装 OpenAllIn：
-
-```bash
-# 项目 A
-cd /path/to/project-a
-bash /tmp/openallin/scripts/install.sh claude
-
-# 项目 B
-cd /path/to/project-b
-bash /tmp/openallin/scripts/install.sh opencode
-```
-
-**注意事项：**
-1. 每个项目的 `project.md` 独立维护
-2. 每个项目的 `specs/`、`changes/`、`workspace/` 独立
-3. 不同项目可以使用不同的 CLI 工具
-4. 建议将 OpenAllIn 作为 submodule 引入项目
-
-```bash
-# 使用 git submodule
-git submodule add https://github.com/vanrayliu/openallin.git openallin
-bash openallin/scripts/install.sh claude
-```
-
-### Q12: 如何备份和恢复 OpenAllIn 配置？
-
-**备份：**
-```bash
-# 备份项目配置
-tar -czf openallin-backup.tar.gz \
-    project.md \
-    specs/ \
-    changes/ \
-    workspace/ \
-    config/ \
-    .claude/ \
-    .opencode/
-```
-
-**恢复：**
-```bash
-# 重新安装 OpenAllIn
-bash scripts/install.sh
-
-# 恢复配置
-tar -xzf openallin-backup.tar.gz
-```
-
 ### Q13: 如何处理命令执行失败？
 
 **检查步骤：**
@@ -714,7 +1108,7 @@ ls changes/<change-name>/
 
 ---
 
-## 五、下一步
+## 七、下一步
 
 1. **编辑 project.md** - 填入你的项目信息
 2. **尝试第一个命令** - `/oa-brainstorming` 或 `/oa-propose`
@@ -724,7 +1118,7 @@ ls changes/<change-name>/
 
 ---
 
-## 六、最佳实践
+## 八、最佳实践
 
 ### 1. 规格先行
 
@@ -765,7 +1159,7 @@ ls changes/<change-name>/
 
 ---
 
-## 七、获取帮助
+## 九、获取帮助
 
 - **GitHub**: https://github.com/vanrayliu/openallin
 - 问题反馈: https://github.com/vanrayliu/openallin/issues

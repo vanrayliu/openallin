@@ -8,11 +8,13 @@
 
 1. [How to Use OpenAllIn in Legacy Projects](#1-how-to-use-openallin-in-legacy-projects)
 2. [How to Use OpenAllIn in New Projects](#2-how-to-use-openallin-in-new-projects)
-3. [Common Workflows](#3-common-workflows)
-4. [FAQ](#4-faq)
-5. [Next Steps](#5-next-steps)
-6. [Best Practices](#6-best-practices)
-7. [Get Help](#7-get-help)
+3. [Install via AI Assistant (Recommended)](#3-install-via-ai-assistant-recommended)
+4. [Use OpenAllIn via Natural Language](#4-use-openallin-via-natural-language)
+5. [Common Workflows](#5-common-workflows)
+6. [FAQ](#6-faq)
+7. [Next Steps](#7-next-steps)
+8. [Best Practices](#8-best-practices)
+9. [Get Help](#9-get-help)
 
 ---
 
@@ -274,7 +276,449 @@ claude
 
 ---
 
-## 3. Common Workflows
+## 3. Install via AI Assistant (Recommended)
+
+> If you're using Claude Code, OpenCode, or similar tools, you can install OpenAllIn through natural language without manually running commands.
+
+### When to Use
+
+- ✅ You're using Claude Code, OpenCode, or similar AI coding tools
+- ✅ You prefer conversational installation
+- ✅ You want AI to handle configuration details automatically
+
+### Method 1: Install in Existing Project
+
+**Step 1: Open Your Project**
+
+```bash
+cd /path/to/your-project
+opencode  # or claude
+```
+
+**Step 2: Tell the AI**
+
+```
+Please install OpenAllIn for me
+```
+
+**What AI Will Do:**
+
+```
+AI: Sure, I'll install OpenAllIn for you.
+
+1. Cloning OpenAllIn repository to temporary directory...
+   ✅ git clone https://github.com/vanrayliu/openallin.git /tmp/openallin
+
+2. Detected you're using OpenCode, starting installation...
+   ✅ Created .opencode/ directory
+   ✅ Installed 17 commands (oa-propose, oa-brainstorming, oa-tdd, etc.)
+   ✅ Copied agents/ (role definitions)
+   ✅ Copied rules/ (coding standards)
+   ✅ Created specs/, changes/, workspace/ directories
+
+3. Installation complete! Please restart OpenCode to load new commands.
+
+Next steps:
+- Edit project.md with your project information
+- Use /oa-brainstorming to start brainstorming
+- Use /oa-propose <name> to create change proposals
+```
+
+**Step 3: Verify Installation**
+
+You:
+```
+Check if OpenAllIn is installed correctly
+```
+
+AI:
+```
+AI: Checking installation status...
+
+✅ AGENTS.md exists
+✅ project.md exists
+✅ .opencode/skills/ exists
+✅ 17 commands installed:
+   - /oa-propose
+   - /oa-apply
+   - /oa-validate
+   - /oa-archive
+   - /oa-discuss
+   - /oa-plan
+   - /oa-execute
+   - /oa-verify
+   - /oa-ship
+   - /oa-brainstorming
+   - /oa-debugging
+   - /oa-tdd
+   - /oa-writing-plans
+   - /oa-worktree
+   - /oa-team-plan
+   - /oa-team-exec
+   - /oa-team-verify
+
+✅ OpenAllIn installed successfully!
+```
+
+---
+
+### Method 2: Create New Project and Install
+
+**Step 1: Create Project Directory and Open AI Tool**
+
+```bash
+mkdir my-new-project
+cd my-new-project
+opencode  # or claude
+```
+
+**Step 2: Tell the AI**
+
+```
+Create a new project and install OpenAllIn
+```
+
+**What AI Will Do:**
+
+```
+AI: Sure, I'll create a new project and install OpenAllIn.
+
+1. Initializing Git repository...
+   ✅ git init
+
+2. Cloning and installing OpenAllIn...
+   ✅ All components installed
+
+3. Initializing project structure...
+   ✅ Created workspace/STATE.md
+   ✅ Created workspace/ROADMAP.md
+   ✅ Created config/settings.json
+
+4. Project is ready!
+
+Next, you need to:
+1. Edit project.md with your project information
+2. Initialize your tech stack (npm init / go mod init, etc.)
+
+Would you like me to initialize a specific tech stack? For example:
+- "Initialize a React + TypeScript project"
+- "Initialize a Go project"
+- "Initialize a Python FastAPI project"
+```
+
+---
+
+### Method 3: Specify Installation Options
+
+**Install specific components only:**
+
+```
+Only install OpenAllIn's brainstorming and tdd commands
+```
+
+**Specify CLI tool:**
+
+```
+I'm using Claude Code, please install OpenAllIn
+```
+
+**Install to multiple tools:**
+
+```
+Install to both OpenCode and Claude Code
+```
+
+---
+
+### Post-Installation Configuration
+
+**Edit project context:**
+
+```
+Help me edit project.md, this is an e-commerce platform using React + Node.js + PostgreSQL
+```
+
+AI will automatically fill in:
+- Tech stack information
+- Architecture patterns
+- Business domain
+
+**Configure team standards:**
+
+```
+Our team uses ESLint + Prettier, commits follow Conventional Commits
+```
+
+AI will update `rules/coding-standards.md` and `rules/commit-rules.md`.
+
+---
+
+### Natural Language Commands Quick Reference
+
+| What You Say | What AI Does |
+|--------------|--------------|
+| "Install OpenAllIn" | Execute full installation |
+| "Check installation status" | Verify all components |
+| "Uninstall OpenAllIn" | Run uninstall script |
+| "Update OpenAllIn" | Reinstall latest version |
+| "Edit project.md" | Guide you through filling in info |
+| "Configure team standards" | Update rules/ directory |
+
+---
+
+### Why Natural Language Installation?
+
+| Comparison | Command Line | Natural Language |
+|------------|--------------|------------------|
+| **Learning Curve** | Need to remember commands | Just state your needs |
+| **Error Handling** | Debug yourself | AI handles automatically |
+| **Configuration** | Manual file editing | AI guides you |
+| **Target Users** | Developers familiar with CLI | All users |
+| **Flexibility** | Full control | AI-assisted decisions |
+
+**Recommendation:** If you're using AI coding tools, prefer natural language installation.
+
+---
+
+## 4. Use OpenAllIn via Natural Language
+
+> Instead of using `/oa-*` commands, you can describe your needs in natural language and let the AI assistant choose and execute the appropriate commands automatically.
+
+### Why Use Natural Language?
+
+| Command Approach | Natural Language Approach |
+|-----------------|--------------------------|
+| Need to remember command names | Just state your needs |
+| Need to understand command parameters | AI infers automatically |
+| Need to manually execute multiple commands | AI chains them automatically |
+| Best for: Experienced users | Best for: All users |
+
+---
+
+### Basic Usage Examples
+
+#### 1. Create a Change
+
+**Command Approach:**
+```
+/oa-propose add-user-login
+/oa-validate add-user-login
+```
+
+**Natural Language Approach:**
+```
+I want to add a user login feature, help me create a change proposal
+```
+
+AI will automatically:
+1. Recognize the need → Call `/oa-propose user-login`
+2. Create proposal files
+3. Validate spec format
+
+---
+
+#### 2. Brainstorming
+
+**Command Approach:**
+```
+/oa-brainstorming
+```
+Then manually answer 5 rounds of questions.
+
+**Natural Language Approach:**
+```
+I want to build a user login feature but not sure how, help me think through it
+```
+
+AI will automatically:
+1. Start brainstorming mode
+2. Guide you through requirement analysis
+3. Generate summary document
+
+---
+
+#### 3. Plan Tasks
+
+**Command Approach:**
+```
+/oa-plan user-login
+```
+
+**Natural Language Approach:**
+```
+What tasks are needed for the user login feature? Help me plan
+```
+
+AI will automatically:
+1. Analyze requirements
+2. Split into atomic tasks
+3. Plan execution waves
+
+---
+
+#### 4. Execute Tasks
+
+**Command Approach:**
+```
+/oa-execute user-login
+/oa-verify user-login
+```
+
+**Natural Language Approach:**
+```
+Start executing the user login tasks, verify when done
+```
+
+AI will automatically:
+1. Execute all tasks
+2. Run verification
+3. Report results
+
+---
+
+### Advanced Usage Examples
+
+#### Complete Workflow (One Sentence Trigger)
+
+```
+Help me implement the user login feature, from requirement analysis to code implementation
+```
+
+AI will automatically execute:
+1. Brainstorming → Clarify requirements
+2. Create proposal → Generate specs
+3. Plan tasks → Split work
+4. Execute tasks → Write code
+5. Verify quality → Ensure correctness
+6. Create PR → Submit code
+
+---
+
+#### Bug Fixing
+
+**Command Approach:**
+```
+/oa-debugging login failure page freeze
+```
+
+**Natural Language Approach:**
+```
+The page keeps spinning after login fails, help me locate and fix this issue
+```
+
+AI will automatically:
+1. Start debug mode
+2. Multi-round Q&A to locate problem
+3. Fix the code
+4. Verify the fix
+
+---
+
+#### TDD Development
+
+**Command Approach:**
+```
+/oa-tdd user login feature
+```
+
+**Natural Language Approach:**
+```
+Develop the user login feature using TDD
+```
+
+AI will automatically:
+1. Write tests first (Red)
+2. Write implementation (Green)
+3. Refactor and optimize (Refactor)
+4. Loop until complete
+
+---
+
+### Natural Language Quick Reference
+
+#### Requirements
+
+| What You Say | What AI Does |
+|--------------|--------------|
+| "I want to build XXX feature" | Start brainstorming |
+| "Help me analyze XXX requirements" | Call `/oa-brainstorming` |
+| "Create a change proposal for XXX" | Call `/oa-propose` |
+| "Validate this change's specs" | Call `/oa-validate` |
+
+#### Tasks
+
+| What You Say | What AI Does |
+|--------------|--------------|
+| "Help me plan tasks for XXX" | Call `/oa-plan` |
+| "Start executing tasks" | Call `/oa-execute` |
+| "Check completion status" | Call `/oa-verify` |
+| "Submit this change" | Call `/oa-ship` |
+
+#### Debugging
+
+| What You Say | What AI Does |
+|--------------|--------------|
+| "XXX has a bug, help me fix it" | Call `/oa-debugging` |
+| "Page shows error: XXX" | Analyze error → Fix |
+| "Tests failing: XXX" | Locate issue → Fix |
+
+#### Queries
+
+| What You Say | What AI Does |
+|--------------|--------------|
+| "Show current project status" | Read `workspace/STATE.md` |
+| "What tasks are incomplete?" | Check `changes/*/tasks.md` |
+| "What's the spec for XXX feature?" | Read `specs/*/spec.md` |
+| "What's the test coverage?" | Run tests and analyze |
+
+---
+
+### Natural Language Best Practices
+
+#### ✅ Good Expressions
+
+```
+✅ "I want to add user login, supporting both username/password and SMS code"
+   → Clear requirements, AI can understand accurately
+
+✅ "Help me implement shopping cart with add/modify/delete items"
+   → Clear features, AI can split tasks
+
+✅ "This API returns 500 error, logs show database connection timeout"
+   → Specific problem, AI can locate quickly
+```
+
+#### ❌ Poor Expressions
+
+```
+❌ "Help me write a feature"
+   → Too vague, AI doesn't know what you want
+
+❌ "Code not working"
+   → Didn't say which feature, what error
+
+❌ "Optimize it"
+   → Didn't say what to optimize, what's the goal
+```
+
+---
+
+### Natural Language vs Commands: When to Use Which?
+
+| Scenario | Recommended Approach | Reason |
+|----------|---------------------|--------|
+| Simple, clear tasks | Commands | Fast, precise |
+| Complex, multi-step tasks | Natural language | AI chains automatically |
+| Unsure how to start | Natural language | AI guides thinking |
+| Debugging, troubleshooting | Natural language | Interactive Q&A |
+| Batch operations | Commands | Scriptable |
+| Learning, exploring | Natural language | AI explains |
+
+**Recommendation:** New users start with natural language, mix both when experienced.
+
+---
+
+## 5. Common Workflows
 
 ### Workflow 1: Quick Change (Suitable for Small Features)
 
@@ -407,7 +851,7 @@ AI: Problem located: src/auth/login.js:42
 
 ---
 
-## 4. FAQ
+## 6. FAQ
 
 ### Q1: Can't see `/oa-*` commands after installation?
 
@@ -664,7 +1108,7 @@ ls changes/<change-name>/
 
 ---
 
-## 5. Next Steps
+## 7. Next Steps
 
 1. **Edit project.md** - Fill in your project information
 2. **Try your first command** - `/oa-brainstorming` or `/oa-propose`
@@ -674,7 +1118,7 @@ ls changes/<change-name>/
 
 ---
 
-## 6. Best Practices
+## 8. Best Practices
 
 ### 1. Spec First
 
@@ -715,7 +1159,7 @@ Before writing code, use `/oa-propose` to clarify:
 
 ---
 
-## 7. Get Help
+## 9. Get Help
 
 - **GitHub**: https://github.com/vanrayliu/openallin
 - **Issue Tracker**: https://github.com/vanrayliu/openallin/issues
