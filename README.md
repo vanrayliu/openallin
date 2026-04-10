@@ -10,6 +10,15 @@
 
 ---
 
+## 📖 使用教程 / User Guide
+
+| 语言 | 文档 | 说明 |
+|------|------|------|
+| 🇨🇳 **中文** | [USAGE.md](./USAGE.md) | 详细使用手册（老项目、新项目、工作流、FAQ、最佳实践） |
+| 🇺🇸 **English** | [USAGE_EN.md](./USAGE_EN.md) | Comprehensive user guide (legacy/new projects, workflows, FAQ, best practices) |
+
+---
+
 ## 🚀 Quick Start / 快速开始
 
 ```bash
