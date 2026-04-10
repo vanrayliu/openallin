@@ -138,7 +138,7 @@ Step 5: 记忆沉淀（Workspace 层）
 | 开始新功能 | brainstorming → writing-plans |
 | 写代码前 | tdd-workflow |
 | 测试失败 | systematic-debugging |
-| 完成任务 | code-review → verification |
+| 完成任务 | oa-review → oa-verify |
 | 开始开发分支 | worktree-isolation |
 | 会话启动 | 自动加载 STATE.md + memory.json |
 | 会话结束 | 自动保存工作日志 |

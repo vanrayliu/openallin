@@ -68,13 +68,13 @@
 
 | 场景 | 技能 |
 |------|------|
-| 新功能/创意工作 | brainstorming |
-| 写代码前 | tdd-workflow |
-| Bug/测试失败 | systematic-debugging |
+| 新功能/创意工作 | oa-brainstorming |
+| 写代码前 | oa-tdd |
+| Bug/测试失败 | oa-debugging |
 | 任务完成 | oa-review |
-| 开始分支 | worktree-isolation |
-| 多步任务 | writing-plans |
-| 声称完成前 | verification |
+| 开始分支 | oa-worktree |
+| 多步任务 | oa-writing-plans |
+| 声称完成前 | oa-verify |
 | 代码/设计/架构审查 | oa-review |
 | 安全检查 | oa-security |
 | 部署/上线 | oa-land |
