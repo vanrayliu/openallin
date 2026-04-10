@@ -21,10 +21,10 @@
 2. /oa-propose <name>      → 生成 proposal + design + specs + tasks
 3. 审核确认
 4. /oa-apply <name>        → 按 tasks.md 逐项执行
-   ├── 每个任务前自动触发 TDD skill
-   ├── 遇到 bug 自动触发 debugging skill
-   └── 完成后自动触发 verification skill
-5. /oa-verify <phase>      → 最终验证
+   ├── 每个任务前推荐调用 /oa-tdd（可选）
+   ├── 遇到 bug 可调用 /oa-debugging（可选）
+   └── 完成后推荐调用 /oa-verify（可选）
+5. /oa-verify              → 最终验证
 6. git commit && push
 ```
 
@@ -112,36 +112,36 @@ Step 3: 并行执行（Workspace 层 + Execution 层）
 Step 4: 质量关卡（Enhancement 层）
 /oa-team-verify
 ├── Reviewer Agent: 代码审查
-├── Security Hook: 安全检查
-├── Verification: 测试/构建验证
-└── Ralph Loop: 自动修复循环
+├── /oa-security: 安全审计
+├── /oa-verify: 测试/构建验证
+└── 如有问题 → /oa-debugging → 修复 → 重新验证
 
 Step 5: 记忆沉淀（Workspace 层）
-├── 工作日志自动记录
-├── 项目决策沉淀到 memory.json
-├── 模式提取到 instincts.json
+├── 工作日志记录（通过 hooks/session-end.js）
+├── 项目决策记录到 memory.json（手动维护）
+├── 模式提取到 instincts.json（手动维护）
 └── 归档到 changes/archive/
 ```
 
 **关键点**：
 - 每个 agent 有明确角色和工具限制
 - Worktree 隔离确保并行不冲突
-- Ralph Loop 自动修复常见问题
+- 质量关卡需要用户显式调用对应命令
 - 所有产出持久化到文件系统
 
 ---
 
 ## 技能触发规则
 
-| 场景 | 自动触发技能 |
-|------|-------------|
-| 开始新功能 | brainstorming → writing-plans |
-| 写代码前 | tdd-workflow |
-| 测试失败 | systematic-debugging |
-| 完成任务 | oa-review → oa-verify |
-| 开始开发分支 | worktree-isolation |
-| 会话启动 | 自动加载 STATE.md + memory.json |
-| 会话结束 | 自动保存工作日志 |
+| 场景 | 推荐技能 |
+|------|---------|
+| 开始新功能 | /oa-brainstorming → /oa-writing-plans |
+| 写代码前 | /oa-tdd（可选） |
+| 测试失败 | /oa-debugging |
+| 任务完成 | /oa-review → /oa-verify |
+| 开始开发分支 | /oa-worktree |
+| 会话启动 | 读取 STATE.md + memory.json |
+| 会话结束 | 保存工作日志 |
 
 ---
 

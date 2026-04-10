@@ -445,7 +445,7 @@ AI assistants cannot predict your project source, so you need to provide it:
 Help me edit project.md, this is an e-commerce platform using React + Node.js + PostgreSQL
 ```
 
-AI will automatically fill in:
+AI will fill in based on your input:
 - Tech stack information
 - Architecture patterns
 - Business domain
@@ -517,7 +517,7 @@ AI will update `rules/coding-standards.md` and `rules/commit-rules.md`.
 I want to add a user login feature, help me create a change proposal
 ```
 
-AI will automatically:
+AI will follow the recommended workflow:
 1. Recognize the need → Call `/oa-propose user-login`
 2. Create proposal files
 3. Validate spec format
@@ -537,7 +537,7 @@ Then manually answer 5 rounds of questions.
 I want to build a user login feature but not sure how, help me think through it
 ```
 
-AI will automatically:
+AI will follow the recommended workflow:
 1. Start brainstorming mode
 2. Guide you through requirement analysis
 3. Generate summary document
@@ -556,7 +556,7 @@ AI will automatically:
 What tasks are needed for the user login feature? Help me plan
 ```
 
-AI will automatically:
+AI will follow the recommended workflow:
 1. Analyze requirements
 2. Split into atomic tasks
 3. Plan execution waves
@@ -576,7 +576,7 @@ AI will automatically:
 Start executing the user login tasks, verify when done
 ```
 
-AI will automatically:
+AI will follow the recommended workflow:
 1. Execute all tasks
 2. Run verification
 3. Report results
@@ -591,13 +591,13 @@ AI will automatically:
 Help me implement the user login feature, from requirement analysis to code implementation
 ```
 
-AI will automatically execute:
-1. Brainstorming → Clarify requirements
-2. Create proposal → Generate specs
-3. Plan tasks → Split work
-4. Execute tasks → Write code
-5. Verify quality → Ensure correctness
-6. Create PR → Submit code
+AI will follow the recommended workflow:
+1. /oa-brainstorming → Clarify requirements
+2. /oa-propose → Generate specs
+3. /oa-plan → Split work
+4. /oa-execute → Write code
+5. /oa-verify → Ensure correctness
+6. /oa-ship → Submit code
 
 ---
 
@@ -613,7 +613,7 @@ AI will automatically execute:
 The page keeps spinning after login fails, help me locate and fix this issue
 ```
 
-AI will automatically:
+AI will follow the recommended workflow:
 1. Start debug mode
 2. Multi-round Q&A to locate problem
 3. Fix the code
@@ -633,7 +633,7 @@ AI will automatically:
 Develop the user login feature using TDD
 ```
 
-AI will automatically:
+AI will follow the recommended workflow:
 1. Write tests first (Red)
 2. Write implementation (Green)
 3. Refactor and optimize (Refactor)

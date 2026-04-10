@@ -66,20 +66,20 @@
 
 ## 技能触发
 
-| 场景 | 技能 |
+| 场景 | 推荐技能 |
 |------|------|
-| 新功能/创意工作 | oa-brainstorming |
-| 写代码前 | oa-tdd |
-| Bug/测试失败 | oa-debugging |
-| 任务完成 | oa-review |
-| 开始分支 | oa-worktree |
-| 多步任务 | oa-writing-plans |
-| 声称完成前 | oa-verify |
-| 代码/设计/架构审查 | oa-review |
-| 安全检查 | oa-security |
-| 部署/上线 | oa-land |
-| 浏览器测试 | oa-qa-browser |
-| 性能测试 | oa-benchmark |
+| 新功能/创意工作 | /oa-brainstorming |
+| 写代码前 | /oa-tdd（可选） |
+| Bug/测试失败 | /oa-debugging |
+| 任务完成 | /oa-review |
+| 开始分支 | /oa-worktree |
+| 多步任务 | /oa-writing-plans |
+| 声称完成前 | /oa-verify |
+| 代码/设计/架构审查 | /oa-review |
+| 安全检查 | /oa-security |
+| 部署/上线 | /oa-land |
+| 浏览器测试 | /oa-qa-browser |
+| 性能测试 | /oa-benchmark |
 
 ## 配置预设
 
@@ -104,6 +104,6 @@ Continuous: + Enhancement       → 安全/学习
 1. **规格先行** — 需求没对齐不写代码
 2. **证据优先** — 验证命令输出再声称成功
 3. **上下文清洁** — 拆小任务，阶段分离
-4. **纪律默认** — 技能自动触发，不可跳过
+4. **推荐纪律** — 关键场景推荐调用对应技能
 5. **文件即记忆** — 所有状态持久化
 6. **角色分离** — 决策和执行用不同 agent

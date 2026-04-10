@@ -57,27 +57,27 @@ proposal.md (WHY) → design.md (HOW) → specs/ (WHAT) → tasks.md (STEPS)
 
 ### 核心机制
 
-1. **自动触发** — 特定场景自动激活对应技能
+1. **手动调用** — 用户显式调用 `/oa-*` 命令激活技能
 2. **工作流定义** — 每个技能有明确的步骤和输出
-3. **纪律约束** — 不允许跳过关键步骤
+3. **推荐场景** — 文档提供推荐调用时机指南
 
 ### 技能矩阵
 
-| 技能 | 触发条件 | 核心纪律 |
+| 技能 | 推荐时机 | 核心纪律 |
 |------|---------|---------|
-| brainstorming | 创造性工作前 | 先理解再动手 |
-| tdd-workflow | 写代码前 | 红→绿→重构 |
-| systematic-debugging | 遇到 bug | 先复现再修复 |
-| code-review | 完成任务后 | 多维度审查 |
-| worktree-isolation | 开始分支开发 | 隔离工作环境 |
-| writing-plans | 多步任务前 | 原子化拆分 |
-| verification | 声称完成前 | 证据优先 |
+| /oa-brainstorming | 创造性工作前 | 先理解再动手 |
+| /oa-tdd | 写代码前（可选） | 红→绿→重构 |
+| /oa-debugging | 遇到 bug | 先复现再修复 |
+| /oa-review | 完成任务后 | 多维度审查 |
+| /oa-worktree | 开始分支开发 | 隔离工作环境 |
+| /oa-writing-plans | 多步任务前 | 原子化拆分 |
+| /oa-verify | 声称完成前 | 证据优先 |
 
 ### 为什么有效
 
 - 把优秀工程师的隐性知识变成显式流程
-- AI 不会"忘记"最佳实践
-- 新成员（人类或 AI）自动遵循团队纪律
+- AI 提供最佳实践指导，用户主动遵循
+- 新成员（人类或 AI）通过文档学习团队纪律
 
 ---
 
@@ -116,22 +116,22 @@ CONTEXT  PLAN    WAVES    REPORT    PR
 
 ### 核心机制
 
-1. **Hooks** — 事件驱动自动化（session start/end, tool use）
-2. **Memory** — 项目决策、模式、约定持久化
-3. **Instincts** — 从会话中自动提取可靠模式
+1. **Hooks** — 事件驱动自动化（session start/end 记录）
+2. **Memory** — 项目决策、模式、约定持久化（手动维护）
+3. **Instincts** — 可复用模式库（手动维护）
 4. **Security** — 密钥检测、Git 安全、配置保护
 
 ### Hook 生命周期
 
 ```
-SessionStart → 加载上下文 → 工作 → PreToolUse → 执行 → PostToolUse → SessionEnd → 保存状态
+SessionStart → 加载上下文 → 工作 → PreToolUse → 执行 → PostToolUse → SessionEnd → 记录日志
 ```
 
 ### 为什么有效
 
-- 跨会话记忆不丢失
-- 安全规则自动执行，不依赖 AI 自觉
-- 持续学习让系统越用越聪明
+- 跨会话记忆不丢失（通过文件持久化）
+- 安全规则通过 hooks 检查执行
+- 用户可主动维护 memory.json 和 instincts.json
 
 ---
 
@@ -171,8 +171,8 @@ SessionStart → 加载上下文 → 工作 → PreToolUse → 执行 → PostTo
 
 ### 核心机制
 
-1. **工作日志** — 每次会话自动记录
-2. **状态文件** — STATE.md / ROADMAP.md 追踪进度
+1. **工作日志** — 每次会话结束记录到 journals/（通过 hooks）
+2. **状态文件** — STATE.md / ROADMAP.md 追踪进度（手动维护）
 3. **任务上下文** — 每个任务有独立的上下文配置
 4. **JSONL 注入** — 精确控制每个 agent 看到的文件
 
@@ -256,7 +256,7 @@ workspace/
 | OpenAllIn 层 | 来源框架 | 核心保留 | 改进点 |
 |-------------|---------|---------|--------|
 | Spec | OpenSpec | Delta spec, archive | 简化 CLI，更灵活 |
-| Skills | Superpowers | 自动触发技能 | 统一触发规则 |
+| Skills | Superpowers | 工程纪律技能 | 推荐调用指南 |
 | Execution | GSD | 阶段隔离, 波次执行 | 更轻量的状态管理 |
 | Orchestration | OMC | Agent 角色, 团队流 | 平台无关 |
 | Enhancement | ECC | Hooks, memory, security | 精简为核心功能 |
