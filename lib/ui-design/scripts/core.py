@@ -132,6 +132,21 @@ DOMAIN_CONFIG = {
             "alternative_approaches",
         ],
     },
+    "chart": {
+        "file": "charts.csv",
+        "search_cols": ["chart_type", "best_use_case", "examples_industries"],
+        "output_cols": [
+            "chart_type",
+            "category",
+            "best_use_case",
+            "visual_style",
+            "data_requirements",
+            "interactions",
+            "accessibility",
+            "examples_industries",
+            "limitations",
+        ],
+    },
 }
 
 
@@ -314,6 +329,17 @@ def detect_domain(query):
             "how",
             "设计逻辑",
             "设计决策",
+        ],
+        "chart": [
+            "chart",
+            "图表",
+            "可视化",
+            "visualization",
+            "dashboard",
+            "仪表盘",
+            "graph",
+            "plot",
+            "数据分析",
         ],
     }
 

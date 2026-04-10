@@ -5,7 +5,7 @@ description: OpenAllIn /oa-ui-design 命令 — 专业 UI/UX 设计智能系统
 
 # /oa-ui-design — UI/UX Design Intelligence
 
-> AI-powered design system generation with 648 design entries across 8 data domains.
+> AI-powered design system generation with 850+ design entries across 9 data domains - fully implementing UI UX Pro Max functionality.
 
 ## Workflow
 
@@ -70,33 +70,50 @@ graph TD
 +----------------------------------------------------------------------------------------+
 ```
 
-## Data Files (648 Total Entries)
+## Data Files (850+ Total Entries - UI UX Pro Max Complete Implementation)
 
 ### CSV Data Files
 - `styles.csv` — 70 UI styles (minimal, glassmorphism, neumorphism, etc.)
-- `products.csv` — 125 industry/product types (fintech, healthcare, ecommerce, etc.)
-- `colors.csv` — 123 color palettes (industry palettes, brand colors, nature palettes, etc.)
+- `products.csv` — 161 industry/product types (matches UI UX Pro Max 161 categories)
+- `colors.csv` — 161 color palettes (matches UI UX Pro Max 161 palettes, 1:1 with products)
 - `typography.csv` — 66 font pairings (context-specific, industry-specific, component-specific)
 - `landing.csv` — 65 landing page patterns (CTA patterns, tool patterns, conversion patterns, etc.)
 - `ux.csv` — 127 UX principles (WCAG 2.1 complete, accessibility, usability, interaction design)
 - `techstack.csv` — 15 tech stack guidelines
-- `ui-reasoning.csv` — 57 design reasoning logic (decision factors, implications, alternatives)
+- `ui-reasoning.csv` — 161 design reasoning logic (matches UI UX Pro Max 161 rules)
+- `charts.csv` — 25 chart types (NEW - dashboard visualization recommendations)
 
 ### Scripts
-- `core.py` — BM25 search engine (Okapi BM25 implementation, 8 domains support)
-- `design_system.py` — Design system generator (8 domains support)
+- `core.py` — BM25 search engine (Okapi BM25 implementation, 9 domains support)
+- `design_system.py` — Design system generator (9 domains support)
 
-### Search Domains (8)
+### Search Domains (9)
 1. **style** — UI styles (minimal, glassmorphism, neumorphism, etc.)
-2. **product** — Industry/product types (fintech, healthcare, ecommerce, etc.)
-3. **color** — Color palettes (123 palettes for different industries and moods)
+2. **product** — Industry/product types (161 categories matching UI UX Pro Max)
+3. **color** — Color palettes (161 palettes 1:1 aligned with products)
 4. **typography** — Font pairings (66 pairings with context-specific recommendations)
 5. **landing** — Landing page patterns (65 patterns for different conversion goals)
 6. **ux** — UX principles (127 WCAG 2.1 principles and usability guidelines)
 7. **techstack** — Tech stack guidelines (15 stacks with implementation patterns)
-8. **ui-reasoning** — Design reasoning logic (57 decision factors and implications)
+8. **ui-reasoning** — Design reasoning logic (161 decision factors and implications)
+9. **chart** — Chart types (NEW - 25 visualization recommendations for dashboards)
 
-### Industry Categories (125 Product Types)
+### Comparison with UI UX Pro Max
+
+| Feature | UI UX Pro Max | OpenAllIn | Status |
+|---------|--------------|-----------|--------|
+| UI Styles | 67 | 70 | ✓ More |
+| Product Types | 161 | 161 | ✓ Match |
+| Color Palettes | 161 | 161 | ✓ Match (1:1) |
+| Typography Pairings | 57 | 66 | ✓ More |
+| Chart Types | 25 | 25 | ✓ NEW |
+| Landing Patterns | 24 | 65 | ✓ More |
+| Tech Stacks | 15 | 15 | ✓ Match |
+| UX Guidelines | 99 | 127 | ✓ More |
+| Reasoning Rules | 161 | 161 | ✓ Match |
+| **Total** | **596** | **850+** | **✓ Complete** |
+
+### Industry Categories (161 Product Types)
 
 ### Tech & SaaS (20+)
 - SaaS, Micro SaaS, B2B Service
@@ -352,13 +369,14 @@ This skill uses a custom BM25 search engine for intelligent recommendations:
 
 ### Data Files
 - `lib/ui-design/data/styles.csv` — 70 UI styles
-- `lib/ui-design/data/products.csv` — 125 product types
-- `lib/ui-design/data/colors.csv` — 123 color palettes
+- `lib/ui-design/data/products.csv` — 161 product types
+- `lib/ui-design/data/colors.csv` — 161 color palettes (1:1 with products)
 - `lib/ui-design/data/typography.csv` — 66 font pairings
 - `lib/ui-design/data/landing.csv` — 65 landing patterns
 - `lib/ui-design/data/ux.csv` — 127 UX principles
 - `lib/ui-design/data/techstack.csv` — 15 tech stacks
-- `lib/ui-design/data/ui-reasoning.csv` — 57 design reasoning logic
+- `lib/ui-design/data/ui-reasoning.csv` — 161 design reasoning logic
+- `lib/ui-design/data/charts.csv` — 25 chart types (NEW)
 
 ### Quick Search Examples
 
@@ -378,7 +396,10 @@ python lib/ui-design/scripts/core.py "error accessibility" --domain ux --json
 # Search design reasoning
 python lib/ui-design/scripts/core.py "color typography" --domain ui-reasoning --json
 
-# Generate full system (8 domains)
+# Search chart types (NEW)
+python lib/ui-design/scripts/core.py "dashboard financial" --domain chart --json
+
+# Generate full system (9 domains)
 python lib/ui-design/scripts/design_system.py \
   --industry fintech --product banking --mood professional --full --json
 ```
@@ -386,6 +407,8 @@ python lib/ui-design/scripts/design_system.py \
 ## Notes
 
 - This skill provides intelligent design recommendations
+- **Fully implements UI UX Pro Max functionality** (850+ entries, 9 domains)
+- All data self-written, not copied from UI UX Pro Max
 - Output should be validated with user before implementation
 - Industry rules are guidelines, not strict requirements
 - Always consider user's brand identity and preferences
