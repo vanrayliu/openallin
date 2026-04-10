@@ -373,7 +373,7 @@ AI: 检查安装状态...
 ✅ AGENTS.md 存在
 ✅ project.md 存在
 ✅ .opencode/skills/ 存在
-✅ 17 个命令已安装：
+✅ 22 个命令已安装：
    - /oa-propose
    - /oa-apply
    - /oa-validate
@@ -382,7 +382,12 @@ AI: 检查安装状态...
    - /oa-plan
    - /oa-execute
    - /oa-verify
+   - /oa-review
    - /oa-ship
+   - /oa-land
+   - /oa-security
+   - /oa-qa-browser
+   - /oa-benchmark
    - /oa-brainstorming
    - /oa-debugging
    - /oa-tdd
@@ -1056,6 +1061,10 @@ cat skills/oa-propose.md
 /oa-team-plan
 /oa-team-exec
 /oa-team-verify
+/oa-security
+/oa-land
+/oa-qa-browser
+/oa-benchmark
 ```
 
 **可选参数的命令：**
@@ -1064,6 +1073,7 @@ cat skills/oa-propose.md
 /oa-plan [phase]               # 可选阶段，如：/oa-plan user-login
 /oa-execute [phase]            # 可选阶段
 /oa-verify [phase]             # 可选阶段
+/oa-review [phase]             # 可选阶段，如：/oa-review user-login
 /oa-ship [phase]               # 可选阶段
 ```
 

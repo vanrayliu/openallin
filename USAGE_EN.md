@@ -373,7 +373,7 @@ AI: Checking installation status...
 ✅ AGENTS.md exists
 ✅ project.md exists
 ✅ .opencode/skills/ exists
-✅ 17 commands installed:
+✅ 22 commands installed:
    - /oa-propose
    - /oa-apply
    - /oa-validate
@@ -382,7 +382,12 @@ AI: Checking installation status...
    - /oa-plan
    - /oa-execute
    - /oa-verify
+   - /oa-review
    - /oa-ship
+   - /oa-land
+   - /oa-security
+   - /oa-qa-browser
+   - /oa-benchmark
    - /oa-brainstorming
    - /oa-debugging
    - /oa-tdd
@@ -1056,6 +1061,10 @@ Some commands require arguments, some don't:
 /oa-team-plan
 /oa-team-exec
 /oa-team-verify
+/oa-security
+/oa-land
+/oa-qa-browser
+/oa-benchmark
 ```
 
 **Commands with optional arguments:**
@@ -1064,6 +1073,7 @@ Some commands require arguments, some don't:
 /oa-plan [phase]               # Optional phase, e.g.: /oa-plan user-login
 /oa-execute [phase]            # Optional phase
 /oa-verify [phase]             # Optional phase
+/oa-review [phase]             # Optional phase, e.g.: /oa-review user-login
 /oa-ship [phase]               # Optional phase
 ```
 
