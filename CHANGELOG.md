@@ -107,6 +107,10 @@ All notable changes to this project will be documented in this file.
 - Created `docs/GSTACK_INTEGRATION_PLAN.md`: Detailed implementation plan for borrowing GStack features
 - All documentation now consistent: 19 skills, Phase 1 complete
 
+---
+
+## [v1.3.0] - 2026-04-10
+
 ### Added
 - **Auto-detect 10+ CLI tools**: OpenCode, Claude Code, Cursor, Codex, OpenClaw, Gemini CLI, Windsurf, Kilo Code, Augment, Zed
 - **/oa-tdd command**: Test-driven development workflow (Red-Green-Refactor cycle)
