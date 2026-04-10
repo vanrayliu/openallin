@@ -117,6 +117,21 @@ DOMAIN_CONFIG = {
             "notes",
         ],
     },
+    "ui-reasoning": {
+        "file": "ui-reasoning.csv",
+        "search_cols": ["reasoning_category", "design_question", "decision_factors"],
+        "output_cols": [
+            "reasoning_category",
+            "design_question",
+            "reasoning_logic",
+            "design_implication",
+            "wcag_impact",
+            "performance_impact",
+            "cognitive_impact",
+            "decision_factors",
+            "alternative_approaches",
+        ],
+    },
 }
 
 
@@ -287,6 +302,18 @@ def detect_domain(query):
             "angular",
             "svelte",
             "astro",
+        ],
+        "ui-reasoning": [
+            "推理",
+            "reasoning",
+            "决策",
+            "decision",
+            "为什么",
+            "why",
+            "如何",
+            "how",
+            "设计逻辑",
+            "设计决策",
         ],
     }
 

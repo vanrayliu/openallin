@@ -5,7 +5,7 @@ description: OpenAllIn /oa-ui-design 命令 — 专业 UI/UX 设计智能系统
 
 # /oa-ui-design — UI/UX Design Intelligence
 
-> AI-powered design system generation with 126 product types, 71 UI styles, and professional recommendations.
+> AI-powered design system generation with 648 design entries across 8 data domains.
 
 ## Workflow
 
@@ -70,20 +70,31 @@ graph TD
 +----------------------------------------------------------------------------------------+
 ```
 
-## Data Files (324 Total Entries)
+## Data Files (648 Total Entries)
 
 ### CSV Data Files
 - `styles.csv` — 70 UI styles (minimal, glassmorphism, neumorphism, etc.)
 - `products.csv` — 125 industry/product types (fintech, healthcare, ecommerce, etc.)
-- `colors.csv` — 16 color palettes
-- `typography.csv` — 66 font pairings
-- `landing.csv` — 12 landing page patterns
-- `ux.csv` — 20 UX principles
+- `colors.csv` — 123 color palettes (industry palettes, brand colors, nature palettes, etc.)
+- `typography.csv` — 66 font pairings (context-specific, industry-specific, component-specific)
+- `landing.csv` — 65 landing page patterns (CTA patterns, tool patterns, conversion patterns, etc.)
+- `ux.csv` — 127 UX principles (WCAG 2.1 complete, accessibility, usability, interaction design)
 - `techstack.csv` — 15 tech stack guidelines
+- `ui-reasoning.csv` — 57 design reasoning logic (decision factors, implications, alternatives)
 
 ### Scripts
-- `core.py` — BM25 search engine (Okapi BM25 implementation)
-- `design_system.py` — Design system generator
+- `core.py` — BM25 search engine (Okapi BM25 implementation, 8 domains support)
+- `design_system.py` — Design system generator (8 domains support)
+
+### Search Domains (8)
+1. **style** — UI styles (minimal, glassmorphism, neumorphism, etc.)
+2. **product** — Industry/product types (fintech, healthcare, ecommerce, etc.)
+3. **color** — Color palettes (123 palettes for different industries and moods)
+4. **typography** — Font pairings (66 pairings with context-specific recommendations)
+5. **landing** — Landing page patterns (65 patterns for different conversion goals)
+6. **ux** — UX principles (127 WCAG 2.1 principles and usability guidelines)
+7. **techstack** — Tech stack guidelines (15 stacks with implementation patterns)
+8. **ui-reasoning** — Design reasoning logic (57 decision factors and implications)
 
 ### Industry Categories (125 Product Types)
 
@@ -342,11 +353,12 @@ This skill uses a custom BM25 search engine for intelligent recommendations:
 ### Data Files
 - `lib/ui-design/data/styles.csv` — 70 UI styles
 - `lib/ui-design/data/products.csv` — 125 product types
-- `lib/ui-design/data/colors.csv` — 16 color palettes
+- `lib/ui-design/data/colors.csv` — 123 color palettes
 - `lib/ui-design/data/typography.csv` — 66 font pairings
-- `lib/ui-design/data/landing.csv` — 12 landing patterns
-- `lib/ui-design/data/ux.csv` — 20 UX principles
+- `lib/ui-design/data/landing.csv` — 65 landing patterns
+- `lib/ui-design/data/ux.csv` — 127 UX principles
 - `lib/ui-design/data/techstack.csv` — 15 tech stacks
+- `lib/ui-design/data/ui-reasoning.csv` — 57 design reasoning logic
 
 ### Quick Search Examples
 
@@ -354,7 +366,19 @@ This skill uses a custom BM25 search engine for intelligent recommendations:
 # Search styles
 python lib/ui-design/scripts/core.py "minimal tech" --json
 
-# Generate full system
+# Search color palettes
+python lib/ui-design/scripts/core.py "brand fintech" --domain color --json
+
+# Search landing patterns
+python lib/ui-design/scripts/core.py "form booking" --domain landing --json
+
+# Search UX principles
+python lib/ui-design/scripts/core.py "error accessibility" --domain ux --json
+
+# Search design reasoning
+python lib/ui-design/scripts/core.py "color typography" --domain ui-reasoning --json
+
+# Generate full system (8 domains)
 python lib/ui-design/scripts/design_system.py \
   --industry fintech --product banking --mood professional --full --json
 ```

@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v1.7.2] - 2026-04-11
+
+### Added
+- **Expanded data files**: 324 → 648 entries (doubled)
+  - colors.csv: 16 → 123 palettes (107 new palettes: industry, brand, nature, gem, fabric, social, digital)
+  - landing.csv: 12 → 65 patterns (53 new patterns: tool, calculator, quiz, generator, booking, donation, subscription)
+  - ux.csv: 20 → 127 principles (107 new principles: WCAG 2.1 complete coverage, accessibility, usability, interaction design)
+  - ui-reasoning.csv: NEW 57 design reasoning logic entries
+- **ui-reasoning domain**: Design decision reasoning
+  - 57 reasoning categories covering design decisions
+  - Decision factors, implications, and alternatives
+  - WCAG impact, performance impact, cognitive impact analysis
+  - Questions: "为什么选择这个配色？", "如何设计CTA？", "是否支持深色模式？"
+- **8 search domains**: style, product, color, typography, landing, ux, techstack, ui-reasoning
+- **All implementations are self-written, not copied**
+
+### Changed
+- Updated core.py: Added ui-reasoning domain support
+- Updated design_system.py: Added ui-reasoning domain to full system generation
+- Updated skills/oa-ui-design.md: 648 total entries documentation
+
+---
+
 ## [v1.7.1] - 2026-04-11
 
 ### Fixed
