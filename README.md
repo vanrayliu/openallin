@@ -207,7 +207,28 @@ openallin/
 │   ├── oa-debugging.md        # Systematic debugging
 │   ├── oa-tdd.md              # Test-driven development
 │   ├── oa-writing-plans.md     # Plan writing
-│   └── oa-worktree.md         # Git Worktree isolation
+│   ├── oa-worktree.md         # Git Worktree isolation
+│   ├── oa-security.md         # Security audit (OWASP + STRIDE)
+│   ├── oa-land.md             # Deployment verification
+│   ├── oa-qa-browser.md       # Browser testing (Playwright)
+│   ├── oa-benchmark.md        # Performance testing
+│   └── oa-review.md           # Code/design/architecture review
+│
+├── lib/                         # [Skills Layer] Supporting libraries
+│   ├── security/               # Security audit library
+│   │   ├── checklist.md        # OWASP + STRIDE checklist
+│   │   └── patterns.md         # Vulnerability patterns
+│   ├── deploy/                 # Deployment library
+│   │   ├── smoke-tests.md      # Smoke test templates
+│   │   └── rollback.md         # Rollback procedures
+│   ├── browser/                # Browser testing library
+│   │   ├── playwright-config.md # Playwright setup guide
+│   │   └── test-templates.md   # Test templates
+│   ├── performance/            # Performance testing library
+│   │   └── benchmark-templates.md # Benchmark templates
+│   └── review/                 # Review library
+│       ├── design-checklist.md # UI/UX design checklist
+│       └── architecture-checklist.md # Architecture checklist
 │
 ├── agents/                      # [Orchestration Layer] Agent definitions
 │   ├── planner.md              # Architect/planner (high-level reasoning)
