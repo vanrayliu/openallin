@@ -436,7 +436,10 @@ In `project.md`:
 
 ### Custom Security Rules
 
-In `lib/security/custom-rules.md`:
+See `lib/security/checklist.md` for OWASP/STRIDE checklist.
+See `lib/security/patterns.md` for security patterns and examples.
+
+Custom rules can be added in `lib/security/custom-rules.md` (create if needed):
 ```markdown
 ## Custom Security Rules
 

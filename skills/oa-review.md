@@ -413,7 +413,10 @@ In `project.md`:
 
 ### Custom Review Rules
 
-In `lib/review/custom-rules.md`:
+See `lib/review/design-checklist.md` for UI/UX design review checklist.
+See `lib/review/architecture-checklist.md` for architecture review checklist.
+
+Custom rules can be added in `lib/review/custom-rules.md` (create if needed):
 ```markdown
 ## Custom Review Rules
 

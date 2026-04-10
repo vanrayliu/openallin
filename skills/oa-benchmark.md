@@ -619,7 +619,9 @@ In `project.md`:
 
 ### Thresholds Configuration
 
-In `lib/performance/thresholds.md`:
+See `lib/performance/benchmark-templates.md` for benchmark templates and thresholds.
+
+Custom thresholds can be added in `lib/performance/thresholds.md` (create if needed):
 ```markdown
 ## Performance Thresholds
 

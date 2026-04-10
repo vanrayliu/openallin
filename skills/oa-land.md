@@ -483,7 +483,10 @@ In `project.md`:
 
 ### Custom Smoke Tests
 
-In `lib/deploy/custom-smoke-tests.md`:
+See `lib/deploy/smoke-tests.md` for detailed smoke test templates.
+See `lib/deploy/rollback.md` for rollback procedures.
+
+Custom tests can be added in `lib/deploy/custom-smoke-tests.md` (create if needed):
 ```markdown
 ## Custom Smoke Tests
 
