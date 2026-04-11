@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v1.8.0] - 2026-04-11
+
+### Added
+- **update.sh script**: New update command for updating existing installations
+  - `bash scripts/update.sh` - Update current project
+  - `bash scripts/update.sh --dry-run` - Preview updates
+  - `bash scripts/update.sh --force` - Force overwrite all files
+  - `bash scripts/update.sh --target <dir>` - Update specified directory
+- **Natural language commands documentation**: Added to all major docs
+  - README.md, README_zh.md, AGENTS.md, USAGE.md, USAGE_EN.md
+  - Installation/Update/Uninstall natural language commands
+  - Core workflow natural language commands
+  - Debug/Test natural language commands
+  - Team collaboration natural language commands
+- **/oa-update command**: Added to AGENTS.md command list
+
+### Changed
+- **Documentation updates**: All docs now include natural language usage guide
+- **Command count**: Updated all references from "22 commands" to "23 commands"
+  - USAGE.md, USAGE_EN.md, CHANGELOG.md
+
+### Fixed
+- **design_system.py**: Fixed indentation error in argument parser
+- **colors.csv**: Renamed duplicate `space_mission` to `space_control` (line 149)
+
+### Verified
+- All 23 skills fully tested and working
+- All CSV data files verified (1228 total entries)
+- All shell scripts syntax verified (5 scripts)
+- All Python scripts compiled successfully (2 scripts)
+- All lib/ directories and files exist (8 modules)
+- AGENTS.md command list matches skill files (23/23)
+
+---
+
 ## [v1.7.6] - 2026-04-11
 
 ### Fixed
