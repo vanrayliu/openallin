@@ -112,8 +112,30 @@ This works with any tool that reads `AGENTS.md` from the project root.
 
 ## Quick Start
 
+### Natural Language Commands
+
+You can use **natural language** to trigger these actions:
+
+| You say | AI executes |
+|---------|-------------|
+| "Install OpenAllIn" | `bash scripts/install.sh` |
+| "Update OpenAllIn" | `bash scripts/update.sh` |
+| "Uninstall OpenAllIn" | `bash scripts/uninstall.sh` |
+| "I want to add a feature" | `/oa-propose <name>` |
+| "Discuss requirements" | `/oa-discuss` |
+| "Start implementation" | `/oa-apply <name>` |
+| "Check code quality" | `/oa-review` |
+| "Security check" | `/oa-security` |
+| "Ship this" | `/oa-ship` |
+| "Deploy to production" | `/oa-land` |
+| "Debug this bug" | `/oa-debugging` |
+| "Write a test" | `/oa-tdd` |
+
+---
+
+### Spec-Driven Workflow
+
 ```
-# Spec-Driven Workflow
 /oa-propose <name>      → Create change proposal
 /oa-apply <name>        → Execute tasks from checklist
 /oa-validate <name>     → Validate spec format

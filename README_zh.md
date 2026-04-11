@@ -4,6 +4,51 @@
 
 ---
 
+## 💬 自然语言命令
+
+你可以直接用**自然语言**让 AI 执行以下操作：
+
+### 安装/更新/卸载
+
+| 你说的 | AI 执行的 |
+|--------|----------|
+| "安装 OpenAllIn" | `bash scripts/install.sh` |
+| "更新一下" | `bash scripts/update.sh` |
+| "卸载 OpenAllIn" | `bash scripts/uninstall.sh` |
+| "预览更新内容" | `bash scripts/update.sh --dry-run` |
+| "强制更新" | `bash scripts/update.sh --force` |
+
+### 核心工作流
+
+| 你说的 | AI 执行的 |
+|--------|----------|
+| "我想加个新功能" | `/oa-propose <name>` |
+| "讨论一下需求" | `/oa-discuss` |
+| "开始实现" | `/oa-apply <name>` |
+| "检查代码质量" | `/oa-review` |
+| "检查安全性" | `/oa-security` |
+| "发布这个功能" | `/oa-ship` |
+| "部署到生产" | `/oa-land` |
+
+### 调试/测试
+
+| 你说的 | AI 执行的 |
+|--------|----------|
+| "这个 bug 怎么修" | `/oa-debugging` |
+| "写个测试" | `/oa-tdd` |
+| "浏览器测试" | `/oa-qa-browser` |
+| "性能测试" | `/oa-benchmark` |
+
+### 团队协作
+
+| 你说的 | AI 执行的 |
+|--------|----------|
+| "团队分工" | `/oa-team-plan` |
+| "并行开发" | `/oa-team-exec` |
+| "团队验证" | `/oa-team-verify` |
+
+---
+
 ## 📖 使用教程
 
 | 语言 | 文档 | 说明 |
