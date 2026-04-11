@@ -460,14 +460,16 @@ AI 会更新 `rules/coding-standards.md` 和 `rules/commit-rules.md`。
 
 ---
 
-### 常用自然语言安装命令速查
+### 常用自然语言安装/更新/卸载命令速查
 
 | 你说的 | AI 做的事 |
 |--------|----------|
 | "安装 OpenAllIn：https://github.com/vanrayliu/openallin" | 执行完整安装流程 |
 | "检查安装状态" | 验证所有组件是否正确安装 |
 | "卸载 OpenAllIn" | 运行卸载脚本 |
-| "更新 OpenAllIn" | 重新安装最新版本 |
+| "更新 OpenAllIn" | 运行 `bash scripts/update.sh` |
+| "预览一下会更新什么" | 运行 `bash scripts/update.sh --dry-run` |
+| "强制更新，覆盖所有配置" | 运行 `bash scripts/update.sh --force` |
 | "编辑 project.md" | 引导填写项目信息 |
 | "配置团队规范" | 更新 rules/ 目录 |
 

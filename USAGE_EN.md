@@ -460,14 +460,16 @@ AI will update `rules/coding-standards.md` and `rules/commit-rules.md`.
 
 ---
 
-### Natural Language Installation Commands Quick Reference
+### Natural Language Installation/Update/Uninstall Commands Quick Reference
 
 | What You Say | What AI Does |
 |--------------|--------------|
 | "Install OpenAllIn: https://github.com/vanrayliu/openallin" | Execute full installation |
 | "Check installation status" | Verify all components |
 | "Uninstall OpenAllIn" | Run uninstall script |
-| "Update OpenAllIn" | Reinstall latest version |
+| "Update OpenAllIn" | Run `bash scripts/update.sh` |
+| "Preview what will be updated" | Run `bash scripts/update.sh --dry-run` |
+| "Force update, overwrite all configs" | Run `bash scripts/update.sh --force` |
 | "Edit project.md" | Guide you through filling in info |
 | "Configure team standards" | Update rules/ directory |
 
