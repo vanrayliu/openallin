@@ -350,7 +350,7 @@ Before executing, have design guidelines ready.
 
 Design review validates against generated design system.
 
-## Related Skills
+## 相关 Skills
 
 - `/oa-brainstorming` — Clarify UI/UX requirements
 - `/oa-review` — Validate design implementation

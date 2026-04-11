@@ -41,3 +41,10 @@ description: OpenAllIn /oa-apply 命令 — 执行变更任务清单
 - 按顺序执行，不要跳步
 - 每次只执行一个任务
 - 完成后立即更新任务清单
+
+## 相关 Skills
+
+- `/oa-propose` — 创建变更提案（前置）
+- `/oa-validate` — 验证规格文档格式（前置）
+- `/oa-archive` — 归档变更（后置）
+- `/oa-execute` — 按波次执行任务（另一种执行方式）

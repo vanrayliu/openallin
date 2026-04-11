@@ -10,6 +10,11 @@ All notable changes to this project will be documented in this file.
   - products.csv: fixed column inconsistency (7 cols → merged to 6 cols, using "/" separator)
 - All CSV files verified: no duplicates, consistent column counts
 
+### Added
+- **Related Skills sections**: Added to all 23 skills
+  - oa-apply, oa-archive, oa-debugging, oa-discuss, oa-execute, oa-plan, oa-propose, oa-tdd, oa-team-plan, oa-team-verify, oa-validate, oa-verify, oa-writing-plans
+- **Unified format**: Changed all "## Related Skills" → "## 相关 Skills" (Chinese)
+
 ### Verified
 - Total data entries: **1220** (correct count, excluding headers)
   - styles.csv: 70 entries ✓
@@ -21,6 +26,9 @@ All notable changes to this project will be documented in this file.
   - ui-reasoning.csv: 161 entries ✓
   - charts.csv: 25 entries ✓
   - products.csv: 530 entries ✓
+- All 23 skills have frontmatter ✓
+- All 23 skills have "相关 Skills" section ✓
+- All lib/ referenced files exist ✓
 
 ---
 

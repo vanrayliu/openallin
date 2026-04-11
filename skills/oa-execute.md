@@ -36,3 +36,10 @@ description: OpenAllIn /oa-execute 命令 — 按波次执行任务
 
 - 每波任务独立完成后再进入下一波
 - 遇到问题及时记录和报告
+
+## 相关 Skills
+
+- `/oa-plan` — 规划执行任务（前置）
+- `/oa-verify` — 验证质量（后置）
+- `/oa-review` — 代码审查（后置）
+- `/oa-ship` — 发布变更（后置）

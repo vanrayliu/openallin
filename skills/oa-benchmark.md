@@ -745,7 +745,7 @@ Blocking further actions until regressions are fixed.
 
 ---
 
-## Related Skills
+## 相关 Skills
 
 - `/oa-qa-browser` — Browser testing (includes performance tests)
 - `/oa-land` — Deployment verification (can trigger `/oa-benchmark`)

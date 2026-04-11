@@ -43,3 +43,10 @@ description: OpenAllIn /oa-verify 命令 — 多维度验证
 
 - 验证报告
 - 失败项及修复建议
+
+## 相关 Skills
+
+- `/oa-execute` — 执行任务（前置）
+- `/oa-review` — 代码审查（后置）
+- `/oa-security` — 安全检查（后置）
+- `/oa-ship` — 发布变更（后置）

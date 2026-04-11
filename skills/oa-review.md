@@ -544,7 +544,7 @@ Recommendation: Reduce coupling and fix LSP violation.
 
 ---
 
-## Related Skills
+## 相关 Skills
 
 - `/oa-security` — Detailed security audit (OWASP + STRIDE)
 - `/oa-verify` — Testing and verification (code coverage)

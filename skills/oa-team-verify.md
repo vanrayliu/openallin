@@ -34,3 +34,10 @@ description: OpenAllIn /oa-team-verify 命令 — 团队验证
 
 ## 可以发布
 ```
+
+## 相关 Skills
+
+- `/oa-team-exec` — 团队并行执行（前置）
+- `/oa-team-plan` — 团队规划（前置）
+- `/oa-review` — 代码审查
+- `/oa-security` — 安全检查

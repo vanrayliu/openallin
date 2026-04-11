@@ -510,7 +510,7 @@ Fix the issue and rerun /oa-security before proceeding.
 
 ---
 
-## Related Skills
+## 相关 Skills
 
 - `/oa-review` — Code review (includes security awareness)
 - `/oa-verify` — Testing and verification (includes security tests)

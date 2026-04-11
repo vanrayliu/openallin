@@ -84,3 +84,10 @@ changes/<name>/
 - 如果变更已存在，提示用户并退出
 - 使用 `set -e` 确保失败时停止
 - 时间使用 ISO 8601 格式 (UTC)
+
+## 相关 Skills
+
+- `/oa-discuss` — 讨论需求细节（后置）
+- `/oa-validate` — 验证规格文档格式（后置）
+- `/oa-apply` — 执行任务清单（后置）
+- `/oa-brainstorming` — 探索性创意讨论（前置）

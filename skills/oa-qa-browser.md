@@ -790,7 +790,7 @@ Recommendation: Change background to darker color (#E63946)
 
 ---
 
-## Related Skills
+## 相关 Skills
 
 - `/oa-verify` — Unit/integration tests (non-browser)
 - `/oa-benchmark` — Performance testing (API/backend)

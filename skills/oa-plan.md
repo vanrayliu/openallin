@@ -38,3 +38,10 @@ description: OpenAllIn /oa-plan 命令 — 规划执行任务
 ## 输出
 
 - `workspace/PLAN.md` — 执行计划和波次安排
+
+## 相关 Skills
+
+- `/oa-discuss` — 需求讨论（前置）
+- `/oa-execute` — 执行任务（后置）
+- `/oa-writing-plans` — 计划编写（多轮迭代）
+- `/oa-verify` — 验证质量（后置）

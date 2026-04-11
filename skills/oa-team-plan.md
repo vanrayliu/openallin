@@ -28,3 +28,9 @@ description: OpenAllIn /oa-team-plan 命令 — 团队规划
 ## 输出
 
 - `workspace/TEAM-PLAN.md` — 团队任务分配和计划
+
+## 相关 Skills
+
+- `/oa-team-exec` — 团队并行执行（后置）
+- `/oa-team-verify` — 团队验证（后置）
+- `/oa-plan` — 单人规划

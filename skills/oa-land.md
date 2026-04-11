@@ -644,7 +644,7 @@ Next step: Fix deployment issue and create new PR.
 
 ---
 
-## Related Skills
+## 相关 Skills
 
 - `/oa-ship` — Ship code (triggers `/oa-land` if auto-run enabled)
 - Manual merge — Merge PR, then run `/oa-land`
