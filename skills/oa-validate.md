@@ -128,7 +128,6 @@ bash scripts/validate-spec.sh changes/<name>
 
 ## 相关 Skills
 
-- `/oa-propose` — 创建变更提案（前置）
-- `/oa-discuss` — 讨论需求（前置）
+- `/oa-discuss` — 讨论需求细节（前置）
 - `/oa-apply` — 执行任务清单（后置）
 - `/oa-archive` — 归档变更（后置）

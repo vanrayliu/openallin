@@ -10,7 +10,7 @@ description: OpenAllIn /oa-plan 命令 — 规划执行任务
 ## 工作流程
 
 ### 1. 分析 CONTEXT
-读取 `workspace/CONTEXT.md` 了解需求和约束。
+读取 `.planning/CONTEXT.md` 了解需求和约束。
 
 ### 2. 拆分原子任务
 - 将需求拆分为独立、可测试的小任务

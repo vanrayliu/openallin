@@ -2,9 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
-## [v1.7.5] - 2026-04-11
+## [v1.7.6] - 2026-04-11
 
 ### Fixed
+- **oa-plan.md**: fixed incorrect path reference `workspace/CONTEXT.md` → `.planning/CONTEXT.md`
+- **oa-validate.md**: fixed workflow chain (前置应该是 `/oa-discuss`，不是 `/oa-propose`)
+- **oa-apply.md**: fixed workflow chain (前置应该是 `/oa-validate`，不是 `/oa-propose`)
+
+### Verified
+- All 23 skills have frontmatter (name, description)
+- All 23 skills have 相关 Skills section
+- All 23 skills have workflow section
+- All workflow references point to existing files
+- Spec-Driven Workflow chain is now correct
+
+---
+
+## [v1.7.5] - 2026-04-11
 - **Data quality fixes**:
   - colors.csv: fixed duplicate `space_cosmic` → renamed to `space_mission`
   - products.csv: fixed column inconsistency (7 cols → merged to 6 cols, using "/" separator)
