@@ -120,7 +120,6 @@ cp -rn "$HARNESS_DIR/config" . 2>/dev/null || true
 cp -rn "$HARNESS_DIR/workspace" . 2>/dev/null || true
 cp -rn "$HARNESS_DIR/templates" . 2>/dev/null || true
 cp -rn "$HARNESS_DIR/scripts" . 2>/dev/null || true
-cp -rn "$HARNESS_DIR/rules" . 2>/dev/null || true
 
 # 创建必要目录（确保完整性）
 mkdir -p tasks/archive .planning
