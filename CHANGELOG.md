@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v1.8.1] - 2026-04-11
+
+### Fixed
+- **AGENTS.md structure**: Removed `/oa-update` from skills command list
+  - `/oa-update` is a script command, not a skill
+  - Added new "Script Commands" section to clearly distinguish scripts from skills
+  - Skills: 23 commands (workflow commands)
+  - Scripts: install/update/uninstall (via natural language)
+
+### Verified
+- All 13 verification checks passed
+- Skills count: 23 (correct)
+- AGENTS.md commands: 23 skills + script commands section
+- All references and links validated
+
+---
+
 ## [v1.8.0] - 2026-04-11
 
 ### Added
